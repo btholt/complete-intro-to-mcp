@@ -1,0 +1,7 @@
+order,sectionTitle,lessonTitle,slug,sectionIcon,filePath,description
+01A,The First Section,Introduction,the-first-section/intro,info-circle,/lessons/the-first-section/intro,The introduction to this course.
+02A,A Second Section,First Lesson,a-second-section/first-lesson,dumpster-fire,/lessons/a-second-section/first-lesson,""
+02B,A Second Section,Second Lesson,a-second-section/second-lesson,dumpster-fire,/lessons/a-second-section/second-lesson,An important second lesson
+03A,Thoughts on JS and CSS,CSS,thoughts-on-js-and-css/css,file-code,/lessons/thoughts-on-js-and-css/css,CSS is for styling
+03B,Thoughts on JS and CSS,JavaScript,thoughts-on-js-and-css/javascript,file-code,/lessons/thoughts-on-js-and-css/javascript,""
+03C,Thoughts on JS and CSS,npm,thoughts-on-js-and-css/npm,file-code,/lessons/thoughts-on-js-and-css/npm,npm doesn't stand for node package manager
