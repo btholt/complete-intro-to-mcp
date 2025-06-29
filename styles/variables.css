@@ -1,73 +1,110 @@
 :root {
-  --primary: #dfa067;
-  --secondary: #93aca7;
-  --highlight: #224159;
+  --primary: #8b5cf6; /* Purple from logo */
+  --secondary: #004cc9; /* Blue from logo */
+  --highlight: #06b6d4; /* Cyan from logo */
 
   --lesson-text: rgb(8, 8, 8);
 
-  --text-header: var(--primary);
-  --text-main-headers: var(--highlight);
-  --text-links: #007bff;
-  --text-footer: #333;
+  --text-header: #ffffff;
+  --text-main-headers: #1f2937;
+  --text-links: var(--secondary);
+  --text-footer: #ffffff;
 
   --bg-main: white;
-  --bg-dots: var(--highlight);
+  --bg-dots: var(--primary);
   --bg-lesson: white;
 
-  --nav-buttons: var(--highlight);
+  --nav-buttons: var(--primary);
   --nav-buttons-text: white;
   --nav-buttons-text-hover: white;
 
-  --corner-active: var(--highlight);
-  --corner-inactive: #f4f4f4;
-  --icons: var(--highlight);
-  --footer-icons: var(--highlight);
+  --corner-active: var(--secondary);
+  --corner-inactive: #e5e7eb;
+  --icons: #1f2937;
+  --footer-icons: #ffffff;
 
-  --emphasized-bg: #dce8ff;
-  --emphasized-border: #aab6d2;
+  --emphasized-bg: #f9fafb;
+  --emphasized-border: var(--primary);
+
+  /* Header gradient - keep this subtle */
+  --header-bg: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--secondary) 100%
+  );
+  /* Footer background */
+  --footer-bg: var(--primary);
 }
 
- [data-theme="dark"] {
-  --primary: #224159;
-  --secondary: #93aca7;
-  --highlight: #dfa067;
+[data-theme="dark"] {
+  --primary: #a78bfa; /* Lighter purple for dark mode */
+  --secondary: #60a5fa; /* Lighter blue for dark mode */
+  --highlight: #22d3ee; /* Lighter cyan for dark mode */
 
-  --text-header: var(--primary);
-  --text-main-headers: var(--highlight);
-  --text-links: #ff6f00;
-  --text-footer: var(--highlight);
+  --text-header: #ffffff;
+  --text-main-headers: #f3f4f6;
+  --text-links: var(--secondary);
+  --text-footer: #ffffff;
 
   --lesson-text: rgb(218, 218, 218);
 
-  --bg-main: #1f1f1f;
-  --bg-dots: var(--highlight);
-  --bg-lesson: #323232;
-  --nav-buttons: var(--highlight);
-  --nav-buttons-text: var(--primary);
-  --nav-buttons-text-hover: var(--highlight);
+  --bg-main: #111827;
+  --bg-dots: var(--primary);
+  --bg-lesson: #1f2937;
+  --nav-buttons: var(--primary);
+  --nav-buttons-text: #111827;
+  --nav-buttons-text-hover: #111827;
 
-  --corner-active: var(--highlight);
-  --corner-inactive: #2a2a2a;
-  --icons: var(--primary);
-  --footer-icons: var(--highlight);
+  --corner-active: var(--secondary);
+  --corner-inactive: #374151;
+  --icons: #f3f4f6;
+  --footer-icons: #ffffff;
 
-  --emphasized-bg: #dce8ff;
-  --emphasized-border: #5a6c89;
-  }
+  --emphasized-bg: #1f2937;
+  --emphasized-border: var(--primary);
 
-  .lesson-title {
-  color: var(--highlight);
-  }
+  /* Header gradient for dark mode */
+  --header-bg: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  /* Footer background for dark mode */
+  --footer-bg: #1f2937;
+}
 
-  .lesson-section-title {
-    color: var(--primary);
-  }
- 
- .terms {
-  color: var(--highlight);
- }
+.lesson-title {
+  color: var(--primary);
+}
 
- li {
-  color: var(--highlight);
- }
+.lesson-section-title {
+  color: var(--secondary);
+}
 
+.terms {
+  color: var(--primary);
+}
+
+li {
+  color: var(--primary);
+}
+
+/* Ensure header uses gradient background */
+.hero-section,
+.header {
+  background: var(--header-bg) !important;
+}
+
+/* Ensure footer has proper background and text contrast */
+.footer {
+  background: var(--footer-bg) !important;
+  color: var(--text-footer) !important;
+}
+
+/* Make sure section icons have proper contrast */
+.section-icon {
+  background: var(--corner-inactive) !important;
+  color: var(--icons) !important;
+}
+
+/* Ensure course logo is visible */
+.course-logo {
+  opacity: 0.9;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
