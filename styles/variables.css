@@ -1,0 +1,73 @@
+:root {
+  --primary: #dfa067;
+  --secondary: #93aca7;
+  --highlight: #224159;
+
+  --lesson-text: rgb(8, 8, 8);
+
+  --text-header: var(--primary);
+  --text-main-headers: var(--highlight);
+  --text-links: #007bff;
+  --text-footer: #333;
+
+  --bg-main: white;
+  --bg-dots: var(--highlight);
+  --bg-lesson: white;
+
+  --nav-buttons: var(--highlight);
+  --nav-buttons-text: white;
+  --nav-buttons-text-hover: white;
+
+  --corner-active: var(--highlight);
+  --corner-inactive: #f4f4f4;
+  --icons: var(--highlight);
+  --footer-icons: var(--highlight);
+
+  --emphasized-bg: #dce8ff;
+  --emphasized-border: #aab6d2;
+}
+
+ [data-theme="dark"] {
+  --primary: #224159;
+  --secondary: #93aca7;
+  --highlight: #dfa067;
+
+  --text-header: var(--primary);
+  --text-main-headers: var(--highlight);
+  --text-links: #ff6f00;
+  --text-footer: var(--highlight);
+
+  --lesson-text: rgb(218, 218, 218);
+
+  --bg-main: #1f1f1f;
+  --bg-dots: var(--highlight);
+  --bg-lesson: #323232;
+  --nav-buttons: var(--highlight);
+  --nav-buttons-text: var(--primary);
+  --nav-buttons-text-hover: var(--highlight);
+
+  --corner-active: var(--highlight);
+  --corner-inactive: #2a2a2a;
+  --icons: var(--primary);
+  --footer-icons: var(--highlight);
+
+  --emphasized-bg: #dce8ff;
+  --emphasized-border: #5a6c89;
+  }
+
+  .lesson-title {
+  color: var(--highlight);
+  }
+
+  .lesson-section-title {
+    color: var(--primary);
+  }
+ 
+ .terms {
+  color: var(--highlight);
+ }
+
+ li {
+  color: var(--highlight);
+ }
+
