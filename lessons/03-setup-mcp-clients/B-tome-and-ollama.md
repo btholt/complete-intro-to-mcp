@@ -1,5 +1,7 @@
 I wanted to give you a second option if for whatever reason you don't want to use Claude Desktop. Again, there are a myriad of choices but I was particularly impressed with [Tome][tome]. Tome is an open source app to chat with LLMs. It supports OpenAI, Google Gemini, and Ollama - so if you want to use either OpenAI or Gemini, here's the place to do it.
 
+> Note that Tome only (as of writing) supports tools, not prompts or resources. But honestly tools are the most important and fun anyway.
+
 You can also run models locally on your computer using [Ollama][ollama]. Ollama is a very cool piece of software that makes it's trivial to run models on your computer. It will spin a local web server for you to make queries against. We can have our Tome then query that locally-running LLM.
 
 Keep in mind that the larger, "smarter" models typically require beefy GPUs to run with any sort of speed. That said, there are some models that run on even just CPUs and can still do tools calling.

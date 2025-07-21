@@ -21,6 +21,16 @@
   - Let's try Cursor
   - Notes on VS Code / Windsurf
 
+## Let's code an MCP server
+
+- Tools
+  - Hello world
+  - open-meteo.com
+- Resource
+  - SQLite schema
+- Prompt
+  -
+
 ## Why MCP was necessary
 
 - We have AI, and want to augment its capabalities beyond just chat. We need tools
