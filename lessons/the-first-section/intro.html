@@ -1,0 +1,144 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8" data-next-head=""/><meta name="viewport" content="width=device-width" data-next-head=""/><link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" data-next-head=""/><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" data-next-head=""/><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" data-next-head=""/><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" data-next-head=""/><link rel="icon" type="image/x-icon" href="/images/favicon.ico" data-next-head=""/><title data-next-head="">Intro – Complete Intro to MCP</title><meta name="description" content="This course is designed to take you from zero to hero in building and using AI tools. You&#x27;ll learn how to use the MCP framework to create powerful AI applications, and how to leverage existing tools to enhance your projects." data-next-head=""/><meta name="keywords" content="mcp,model context protocol,anthropic,openai,llms,chatgpt,machine learning,ai tools,ai applications,frontend masters,brian holt" data-next-head=""/><meta name="og:description" content="This course is designed to take you from zero to hero in building and using AI tools. You&#x27;ll learn how to use the MCP framework to create powerful AI applications, and how to leverage existing tools to enhance your projects." data-next-head=""/><meta name="og:title" content="Intro – Complete Intro to MCP" data-next-head=""/><meta name="og:image" content="/images/social-share-cover.jpg" data-next-head=""/><meta name="twitter:card" content="summary_large_image" data-next-head=""/><link data-next-font="size-adjust" rel="preconnect" href="/" crossorigin="anonymous"/><link rel="preload" href="/_next/static/css/73433fe1facb4046.css" as="style"/><link rel="stylesheet" href="/_next/static/css/73433fe1facb4046.css" data-n-g=""/><noscript data-n-css=""></noscript><script defer="" noModule="" src="/_next/static/chunks/polyfills-42372ed130431b0a.js"></script><script src="/_next/static/chunks/webpack-b66ed8ba6f029a99.js" defer=""></script><script src="/_next/static/chunks/framework-2f335d22a7318891.js" defer=""></script><script src="/_next/static/chunks/main-00b4e1227fd2aa8a.js" defer=""></script><script src="/_next/static/chunks/pages/_app-36eeb9de5b2e16b8.js" defer=""></script><script src="/_next/static/chunks/pages/lessons/%5Bsection%5D/%5Bslug%5D-586c4f36d6d31db3.js" defer=""></script><script src="/_next/static/Iid2voQ625OYbGGP3Puu0/_buildManifest.js" defer=""></script><script src="/_next/static/Iid2voQ625OYbGGP3Puu0/_ssgManifest.js" defer=""></script></head><body><script async="" defer="" src="https://a.holt.courses/latest.js"></script><div id="__next"><div class="remix-app"><header class="navbar"><h1 class="navbar-brand"><a href="/">Complete Intro to MCP</a></h1><div class="navbar-info"><a href="https://frontendmasters.com/courses/mcp/" class="cta-btn">Watch on Frontend Masters</a></div></header><div class="content-container"><div class="main"><div class="lesson-container"><div class="lesson"><div class="lesson-content"><h1>Outline</h1>
+<h2>AI</h2>
+<ul>
+<li>AI, and it&#39;s new role in software development</li>
+<li>AI and how it intersects with software dev<ul>
+<li>Using an LLM as a general helper</li>
+<li>Using LLM-infused development flows like Cursor</li>
+<li>How to wade into AI for newcomers</li>
+</ul>
+</li>
+<li>What is an agent, and why they need the ability to interact with an external service</li>
+</ul>
+<h2>Set up</h2>
+<ul>
+<li>Clients<ul>
+<li>Claude Desktop is easiest</li>
+<li>Notes on how to do it with Ollama</li>
+</ul>
+</li>
+<li>Servers<ul>
+<li>Neon?</li>
+<li>What other MCP servers could I put here?</li>
+</ul>
+</li>
+<li>Coding editors<ul>
+<li>Let&#39;s try Cursor</li>
+<li>Notes on VS Code / Windsurf</li>
+</ul>
+</li>
+</ul>
+<h2>Let&#39;s code an MCP server</h2>
+<ul>
+<li>Tools<ul>
+<li>Hello world</li>
+<li>open-meteo.com</li>
+</ul>
+</li>
+<li>Resource<ul>
+<li>SQLite schema</li>
+</ul>
+</li>
+<li><h2>Prompt</h2>
+</li>
+</ul>
+<h2>Why MCP was necessary</h2>
+<ul>
+<li>We have AI, and want to augment its capabalities beyond just chat. We need tools</li>
+<li>How would you do it now? Let&#39;s try and build it with an API.<ul>
+<li>Problem #1 - &quot;Create a high priority issue for the login page and assign to frontend team&quot;<ul>
+<li>Search for high priority and bug tags</li>
+<li>Search for frontend team</li>
+<li>Create issue</li>
+<li>Attach tags</li>
+<li>Assign frontend team</li>
+<li>The AI <em>might</em> get it but probably won&#39;t get all the steps right</li>
+<li>The fix: an atomic tool call that does the thing that you want</li>
+</ul>
+</li>
+<li>Problem #2 - &quot;Show me all frontend issues and use emojis to express how urgent they are&quot;<ul>
+<li>It needs to fetch from the API and <em>hopefully</em> it parses the JSON correctly</li>
+<li>Removing the strict requirements of your AI agent understanding JSON and its strict nature is only going to help it</li>
+</ul>
+</li>
+<li>Problem #3 - &quot;Give me all issues assigned to me&quot;<ul>
+<li>Relying on agents to do auth is a nightmare and frequently won&#39;t work.</li>
+</ul>
+</li>
+<li>Problem #4 - &quot;Providing context on API calls&quot;<ul>
+<li>You either need to somehow say &quot;this API does this&quot; or otherwise document what APIs do. MCP just does this for as part of making it.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hands-on: let&#39;s try to make an MCP server make several sequential calls of an API</li>
+</ul>
+<h2>How to make an MCP server with tools</h2>
+<ul>
+<li>What MCP servers expect</li>
+<li>SSE vs stdio (we&#39;ll cover both)</li>
+<li>The steps<ul>
+<li>Handshake</li>
+<li>Capabilities discovery</li>
+<li>Lifecycle</li>
+</ul>
+</li>
+<li>Tool definitions (server)</li>
+<li>Tool invokations (client)</li>
+<li>Prompts - templates for AI interactions</li>
+<li>Hands-on: let&#39;s grab an existing MCP server and watch the interactions</li>
+<li>Take-aways<ul>
+<li>MCP is not magic. In fact it&#39;s kinda brain-dead simple.</li>
+<li>It&#39;s really just a protocol in JSON</li>
+<li>It&#39;s meant to be discoverable so AIs can learn what actions they can do</li>
+<li>It&#39;s in fact stateful</li>
+<li>It uses JSON-RPC 2.0</li>
+</ul>
+</li>
+<li>Let&#39;s build an MCP server and get Ollama / Claude to use it<ul>
+<li>Hands-on: The create issue API example above, let&#39;s build a little Node.js server that does the right thing and then expose that as a tool</li>
+</ul>
+</li>
+</ul>
+<h2>Remote vs Local MCP</h2>
+<ul>
+<li>STDIO vs SSE</li>
+<li>Remote vs Local</li>
+</ul>
+<h2>Let&#39;s vibe with MCP</h2>
+<ul>
+<li>Let&#39;s open Cursor.</li>
+<li>Let&#39;s add some MCP servers<ul>
+<li>Hands-on: Maybe the Neon MCP server?</li>
+<li>Maybe Playwright?</li>
+<li><a href="https://github.com/punkpeye/awesome-mcp-servers">https://github.com/punkpeye/awesome-mcp-servers</a></li>
+</ul>
+</li>
+<li>Let&#39;s try the one we created<ul>
+<li>Hands-on: Have Cursor manage some issues for us.</li>
+</ul>
+</li>
+<li>Let&#39;s try with Claude Desktop<ul>
+<li>Hands-on: Add our MCP server and have Claude read and create issues for us.</li>
+</ul>
+</li>
+</ul>
+<h2>MCP Tips, Tricks, and Security</h2>
+<ul>
+<li>You need to genuinely treat giving MCP access like giving a person access to something.<ul>
+<li>Only give read access to what you need, and only grant write on an as-needed basis</li>
+<li>Hands-on: It&#39;d be really cool to show a security exploit of someone exfiltrating a database query</li>
+</ul>
+</li>
+<li>Too many MCP tools confuses agents<ul>
+<li>As of writing, 40 is the limit, and probably should be less</li>
+<li>Show how to limit tools from an MCP server exposed to Cursor/Claude</li>
+</ul>
+</li>
+</ul>
+<h2>Wrap Up</h2>
+<ul>
+<li>This all bound to change. AI and MCP changes week to week</li>
+<li>Good job, vibe on.</li>
+</ul>
+</div><div class="lesson-links"><a href="/lessons/ai/thoughts-on-ai" class="next">Next →</a></div></div><div class="details-bg"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="154" height="154" viewBox="0 0 154 154"><defs><clipPath id="clip-path"><rect id="Rectangle_2238" data-name="Rectangle 2238" width="154" height="154" transform="translate(9467 350)" fill="#fff" stroke="#707070" stroke-width="1"></rect></clipPath><clipPath id="clip-corner-image-active"><rect width="154" height="154"></rect></clipPath></defs><g id="corner-image-active" clip-path="url(#clip-corner-image-active)"><g id="Corner-image-active-2" data-name="Corner-image-active" transform="translate(-9467 -350)" clip-path="url(#clip-path)"><path id="Subtraction_34" data-name="Subtraction 34" d="M-3857.365,1740.766h0l-7.07-7.07,12.89-12.89v14.142l-5.818,5.818Zm-14.142-14.142h0l-7.071-7.07,27.033-27.033v14.143l-19.96,19.96Zm-14.143-14.143h0l-7.07-7.069,41.175-41.175v14.142Zm-14.142-14.142h0l-7.07-7.069,55.317-55.317v14.142Zm-14.142-14.142h0l-7.07-7.069,69.459-69.459v14.142Zm-14.142-14.142h0l-7.07-7.069,76.739-76.739h6.862v7.28Zm-14.143-14.143h0l-7.07-7.069,62.6-62.6h14.142Zm-14.142-14.142h0l-7.07-7.069,48.454-48.454h14.142Zm-14.142-14.142h0l-7.07-7.069,34.312-34.312h14.142Zm-14.142-14.142h0l-7.07-7.069,20.17-20.17h14.142Zm-14.142-14.142h0l-7.071-7.071,6.027-6.027h14.144l-13.1,13.1Zm367.24-56.114v-.909l.455.455-.453.453Z" transform="translate(13472.546 -1236.766)" fill="var(--corner-fill)"></path></g></g></svg></div></div></div></div><noscript><img src="https://a.holt.courses/noscript.gif" alt="" referrerPolicy="no-referrer-when-downgrade"/></noscript><footer class="footer"><ul class="socials"><li class="social"><a href="https://twitter.com/holtbt"><svg fill="none" height="100%" width="32" xmlns="http://www.w3.org/2000/svg" viewBox="0.254 0.25 500 451.95400000000006"><path d="M394.033.25h76.67L303.202 191.693l197.052 260.511h-154.29L225.118 294.205 86.844 452.204H10.127l179.16-204.77L.254.25H158.46l109.234 144.417zm-26.908 406.063h42.483L135.377 43.73h-45.59z" fill="var(--footer-icons)"></path></svg></a></li><li class="social"><a href="https://bsky.app/profile/brianholt.me"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -3.268 64 68.414" width="38" height="100%"><path fill="var(--footer-icons)" d="M13.873 3.805C21.21 9.332 29.103 20.537 32 26.55v15.882c0-.338-.13.044-.41.867-1.512 4.456-7.418 21.847-20.923 7.944-7.111-7.32-3.819-14.64 9.125-16.85-7.405 1.264-15.73-.825-18.014-9.015C1.12 23.022 0 8.51 0 6.55 0-3.268 8.579-.182 13.873 3.805zm36.254 0C42.79 9.332 34.897 20.537 32 26.55v15.882c0-.338.13.044.41.867 1.512 4.456 7.418 21.847 20.923 7.944 7.111-7.32 3.819-14.64-9.125-16.85 7.405 1.264 15.73-.825 18.014-9.015C62.88 23.022 64 8.51 64 6.55c0-9.818-8.578-6.732-13.873-2.745z"></path></svg></a></li><li class="social"><a href="https://github.com/btholt"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><defs><clipPath id="clip-github-social"><rect width="32" height="32"></rect></clipPath></defs><g id="github-social" clip-path="url(#clip-github-social)"><g id="Group_272" data-name="Group 272" transform="translate(13522.5 -6994)"><path id="Subtraction_33" data-name="Subtraction 33" d="M-24967.5,8041a15.9,15.9,0,0,1-11.312-4.688A15.893,15.893,0,0,1-24983.5,8025a15.893,15.893,0,0,1,4.689-11.315A15.894,15.894,0,0,1-24967.5,8009a15.894,15.894,0,0,1,11.313,4.686A15.893,15.893,0,0,1-24951.5,8025a15.893,15.893,0,0,1-4.689,11.313A15.9,15.9,0,0,1-24967.5,8041Zm-3.781-4.571h0v3.918h7.895v-6.665a1.836,1.836,0,0,0-1.2-1.718c5.1-.617,7.467-2.975,7.467-7.424a7.176,7.176,0,0,0-1.637-4.728,6.74,6.74,0,0,0,.275-1.812,4.34,4.34,0,0,0-.52-2.452.574.574,0,0,0-.359-.1c-1.061,0-3.465,1.411-3.936,1.694a16.644,16.644,0,0,0-4.2-.489,16.379,16.379,0,0,0-3.969.445c-.846-.5-2.91-1.649-3.859-1.649a.566.566,0,0,0-.354.095,4.3,4.3,0,0,0-.521,2.452,6.7,6.7,0,0,0,.244,1.718,7.346,7.346,0,0,0-1.6,4.822,7.263,7.263,0,0,0,1.533,4.985c1.193,1.359,3.115,2.165,5.871,2.464a1.826,1.826,0,0,0-1.129,1.693v.5h0l-.006,0a7.121,7.121,0,0,1-2.033.363,2.608,2.608,0,0,1-.965-.158,4.438,4.438,0,0,1-1.836-1.881,2.361,2.361,0,0,0-1.248-1.091,3.472,3.472,0,0,0-1.217-.3.584.584,0,0,0-.545.224.282.282,0,0,0,.027.367,1.875,1.875,0,0,0,.447.307,4.732,4.732,0,0,1,.561.355,10.726,10.726,0,0,1,1.682,2.755c.043.092.078.163.105.217a3.876,3.876,0,0,0,2.42,1.185,6.036,6.036,0,0,0,.607.025c.875,0,1.988-.124,2-.125Z" transform="translate(11461 -1015)" fill="var(--footer-icons)"></path><g id="Ellipse_670" data-name="Ellipse 670" transform="translate(-13522.5 6994)" fill="none" stroke="var(--footer-icons)" stroke-width="1"><circle cx="16" cy="16" r="16" stroke="none"></circle><circle cx="16" cy="16" r="15.5" fill="none"></circle></g></g></g></svg></a></li><li class="social"><a href="https://linkedin.com/in/btholt"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><defs><clipPath id="clip-linkedin-social"><rect width="32" height="32"></rect></clipPath></defs><g id="linkedin-social" clip-path="url(#clip-linkedin-social)"><g id="Group_270" data-name="Group 270" transform="translate(-86.349 -633.073)"><path id="Path_375" data-name="Path 375" d="M115.789,633.073a2.324,2.324,0,0,1,1.682.676,2.194,2.194,0,0,1,.695,1.627V662.8a2.131,2.131,0,0,1-.695,1.609,2.314,2.314,0,0,1-1.646.659H88.69a2.307,2.307,0,0,1-1.646-.659,2.128,2.128,0,0,1-.695-1.609V635.376a2.19,2.19,0,0,1,.695-1.627,2.322,2.322,0,0,1,1.682-.676h27.063Zm-20.224,9.672a2.561,2.561,0,0,0,0-3.584,2.658,2.658,0,0,0-1.938-.712,2.724,2.724,0,0,0-1.957.712,2.371,2.371,0,0,0-.75,1.792,2.4,2.4,0,0,0,.731,1.792,2.605,2.605,0,0,0,1.9.713h.037A2.7,2.7,0,0,0,95.565,642.745ZM96,645.434H91.213V659.88H96Zm17.3,6.144a7.007,7.007,0,0,0-1.573-4.9,5.68,5.68,0,0,0-6.839-.769,5.663,5.663,0,0,0-1.426,1.573v-2.048H98.674q.036.841,0,7.717v6.728h4.791V651.8a3.592,3.592,0,0,1,.146-1.17,2.913,2.913,0,0,1,.878-1.206,2.429,2.429,0,0,1,1.609-.549,2.108,2.108,0,0,1,1.865.914,4.265,4.265,0,0,1,.549,2.341v7.752H113.3Z" fill="var(--footer-icons)"></path></g></g></svg></a></li><li class="social"><div class="terms"><p>Content Licensed Under CC-BY-NC-4.0</p><p>Code Samples and Exercises Licensed Under Apache 2.0</p><p>Site Designed by<!-- --> <a href="https://www.alexdanielson.com/">Alex Danielson</a></p></div></li></ul><div class="theme-icons"><button aria-label="Activate dark mode" title="Activate dark mode" class="theme-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="36px" height="100%" viewBox="0 -960 960 960" fill="var(--text-footer)" role="img"><title>Dark Mode Icon</title><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Zm0-80q88 0 158-48.5T740-375q-20 5-40 8t-40 3q-123 0-209.5-86.5T364-660q0-20 3-40t8-40q-78 32-126.5 102T200-480q0 116 82 198t198 82Z"></path></svg></button></div></footer></div></div><script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{"post":{"attributes":{},"html":"\u003ch1\u003eOutline\u003c/h1\u003e\n\u003ch2\u003eAI\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eAI, and it\u0026#39;s new role in software development\u003c/li\u003e\n\u003cli\u003eAI and how it intersects with software dev\u003cul\u003e\n\u003cli\u003eUsing an LLM as a general helper\u003c/li\u003e\n\u003cli\u003eUsing LLM-infused development flows like Cursor\u003c/li\u003e\n\u003cli\u003eHow to wade into AI for newcomers\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eWhat is an agent, and why they need the ability to interact with an external service\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eSet up\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eClients\u003cul\u003e\n\u003cli\u003eClaude Desktop is easiest\u003c/li\u003e\n\u003cli\u003eNotes on how to do it with Ollama\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eServers\u003cul\u003e\n\u003cli\u003eNeon?\u003c/li\u003e\n\u003cli\u003eWhat other MCP servers could I put here?\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eCoding editors\u003cul\u003e\n\u003cli\u003eLet\u0026#39;s try Cursor\u003c/li\u003e\n\u003cli\u003eNotes on VS Code / Windsurf\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eLet\u0026#39;s code an MCP server\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eTools\u003cul\u003e\n\u003cli\u003eHello world\u003c/li\u003e\n\u003cli\u003eopen-meteo.com\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eResource\u003cul\u003e\n\u003cli\u003eSQLite schema\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003e\u003ch2\u003ePrompt\u003c/h2\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eWhy MCP was necessary\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eWe have AI, and want to augment its capabalities beyond just chat. We need tools\u003c/li\u003e\n\u003cli\u003eHow would you do it now? Let\u0026#39;s try and build it with an API.\u003cul\u003e\n\u003cli\u003eProblem #1 - \u0026quot;Create a high priority issue for the login page and assign to frontend team\u0026quot;\u003cul\u003e\n\u003cli\u003eSearch for high priority and bug tags\u003c/li\u003e\n\u003cli\u003eSearch for frontend team\u003c/li\u003e\n\u003cli\u003eCreate issue\u003c/li\u003e\n\u003cli\u003eAttach tags\u003c/li\u003e\n\u003cli\u003eAssign frontend team\u003c/li\u003e\n\u003cli\u003eThe AI \u003cem\u003emight\u003c/em\u003e get it but probably won\u0026#39;t get all the steps right\u003c/li\u003e\n\u003cli\u003eThe fix: an atomic tool call that does the thing that you want\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eProblem #2 - \u0026quot;Show me all frontend issues and use emojis to express how urgent they are\u0026quot;\u003cul\u003e\n\u003cli\u003eIt needs to fetch from the API and \u003cem\u003ehopefully\u003c/em\u003e it parses the JSON correctly\u003c/li\u003e\n\u003cli\u003eRemoving the strict requirements of your AI agent understanding JSON and its strict nature is only going to help it\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eProblem #3 - \u0026quot;Give me all issues assigned to me\u0026quot;\u003cul\u003e\n\u003cli\u003eRelying on agents to do auth is a nightmare and frequently won\u0026#39;t work.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eProblem #4 - \u0026quot;Providing context on API calls\u0026quot;\u003cul\u003e\n\u003cli\u003eYou either need to somehow say \u0026quot;this API does this\u0026quot; or otherwise document what APIs do. MCP just does this for as part of making it.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eHands-on: let\u0026#39;s try to make an MCP server make several sequential calls of an API\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eHow to make an MCP server with tools\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eWhat MCP servers expect\u003c/li\u003e\n\u003cli\u003eSSE vs stdio (we\u0026#39;ll cover both)\u003c/li\u003e\n\u003cli\u003eThe steps\u003cul\u003e\n\u003cli\u003eHandshake\u003c/li\u003e\n\u003cli\u003eCapabilities discovery\u003c/li\u003e\n\u003cli\u003eLifecycle\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eTool definitions (server)\u003c/li\u003e\n\u003cli\u003eTool invokations (client)\u003c/li\u003e\n\u003cli\u003ePrompts - templates for AI interactions\u003c/li\u003e\n\u003cli\u003eHands-on: let\u0026#39;s grab an existing MCP server and watch the interactions\u003c/li\u003e\n\u003cli\u003eTake-aways\u003cul\u003e\n\u003cli\u003eMCP is not magic. In fact it\u0026#39;s kinda brain-dead simple.\u003c/li\u003e\n\u003cli\u003eIt\u0026#39;s really just a protocol in JSON\u003c/li\u003e\n\u003cli\u003eIt\u0026#39;s meant to be discoverable so AIs can learn what actions they can do\u003c/li\u003e\n\u003cli\u003eIt\u0026#39;s in fact stateful\u003c/li\u003e\n\u003cli\u003eIt uses JSON-RPC 2.0\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eLet\u0026#39;s build an MCP server and get Ollama / Claude to use it\u003cul\u003e\n\u003cli\u003eHands-on: The create issue API example above, let\u0026#39;s build a little Node.js server that does the right thing and then expose that as a tool\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eRemote vs Local MCP\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eSTDIO vs SSE\u003c/li\u003e\n\u003cli\u003eRemote vs Local\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eLet\u0026#39;s vibe with MCP\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eLet\u0026#39;s open Cursor.\u003c/li\u003e\n\u003cli\u003eLet\u0026#39;s add some MCP servers\u003cul\u003e\n\u003cli\u003eHands-on: Maybe the Neon MCP server?\u003c/li\u003e\n\u003cli\u003eMaybe Playwright?\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/punkpeye/awesome-mcp-servers\"\u003ehttps://github.com/punkpeye/awesome-mcp-servers\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eLet\u0026#39;s try the one we created\u003cul\u003e\n\u003cli\u003eHands-on: Have Cursor manage some issues for us.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eLet\u0026#39;s try with Claude Desktop\u003cul\u003e\n\u003cli\u003eHands-on: Add our MCP server and have Claude read and create issues for us.\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eMCP Tips, Tricks, and Security\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eYou need to genuinely treat giving MCP access like giving a person access to something.\u003cul\u003e\n\u003cli\u003eOnly give read access to what you need, and only grant write on an as-needed basis\u003c/li\u003e\n\u003cli\u003eHands-on: It\u0026#39;d be really cool to show a security exploit of someone exfiltrating a database query\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003cli\u003eToo many MCP tools confuses agents\u003cul\u003e\n\u003cli\u003eAs of writing, 40 is the limit, and probably should be less\u003c/li\u003e\n\u003cli\u003eShow how to limit tools from an MCP server exposed to Cursor/Claude\u003c/li\u003e\n\u003c/ul\u003e\n\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch2\u003eWrap Up\u003c/h2\u003e\n\u003cul\u003e\n\u003cli\u003eThis all bound to change. AI and MCP changes week to week\u003c/li\u003e\n\u003cli\u003eGood job, vibe on.\u003c/li\u003e\n\u003c/ul\u003e\n","markdown":"# Outline\n\n## AI\n\n- AI, and it's new role in software development\n- AI and how it intersects with software dev\n  - Using an LLM as a general helper\n  - Using LLM-infused development flows like Cursor\n  - How to wade into AI for newcomers\n- What is an agent, and why they need the ability to interact with an external service\n\n## Set up\n\n- Clients\n  - Claude Desktop is easiest\n  - Notes on how to do it with Ollama\n- Servers\n  - Neon?\n  - What other MCP servers could I put here?\n- Coding editors\n  - Let's try Cursor\n  - Notes on VS Code / Windsurf\n\n## Let's code an MCP server\n\n- Tools\n  - Hello world\n  - open-meteo.com\n- Resource\n  - SQLite schema\n- Prompt\n  -\n\n## Why MCP was necessary\n\n- We have AI, and want to augment its capabalities beyond just chat. We need tools\n- How would you do it now? Let's try and build it with an API.\n  - Problem #1 - \"Create a high priority issue for the login page and assign to frontend team\"\n    - Search for high priority and bug tags\n    - Search for frontend team\n    - Create issue\n    - Attach tags\n    - Assign frontend team\n    - The AI _might_ get it but probably won't get all the steps right\n    - The fix: an atomic tool call that does the thing that you want\n  - Problem #2 - \"Show me all frontend issues and use emojis to express how urgent they are\"\n    - It needs to fetch from the API and _hopefully_ it parses the JSON correctly\n    - Removing the strict requirements of your AI agent understanding JSON and its strict nature is only going to help it\n  - Problem #3 - \"Give me all issues assigned to me\"\n    - Relying on agents to do auth is a nightmare and frequently won't work.\n  - Problem #4 - \"Providing context on API calls\"\n    - You either need to somehow say \"this API does this\" or otherwise document what APIs do. MCP just does this for as part of making it.\n- Hands-on: let's try to make an MCP server make several sequential calls of an API\n\n## How to make an MCP server with tools\n\n- What MCP servers expect\n- SSE vs stdio (we'll cover both)\n- The steps\n  - Handshake\n  - Capabilities discovery\n  - Lifecycle\n- Tool definitions (server)\n- Tool invokations (client)\n- Prompts - templates for AI interactions\n- Hands-on: let's grab an existing MCP server and watch the interactions\n- Take-aways\n  - MCP is not magic. In fact it's kinda brain-dead simple.\n  - It's really just a protocol in JSON\n  - It's meant to be discoverable so AIs can learn what actions they can do\n  - It's in fact stateful\n  - It uses JSON-RPC 2.0\n- Let's build an MCP server and get Ollama / Claude to use it\n  - Hands-on: The create issue API example above, let's build a little Node.js server that does the right thing and then expose that as a tool\n\n## Remote vs Local MCP\n\n- STDIO vs SSE\n- Remote vs Local\n\n## Let's vibe with MCP\n\n- Let's open Cursor.\n- Let's add some MCP servers\n  - Hands-on: Maybe the Neon MCP server?\n  - Maybe Playwright?\n  - https://github.com/punkpeye/awesome-mcp-servers\n- Let's try the one we created\n  - Hands-on: Have Cursor manage some issues for us.\n- Let's try with Claude Desktop\n  - Hands-on: Add our MCP server and have Claude read and create issues for us.\n\n## MCP Tips, Tricks, and Security\n\n- You need to genuinely treat giving MCP access like giving a person access to something.\n  - Only give read access to what you need, and only grant write on an as-needed basis\n  - Hands-on: It'd be really cool to show a security exploit of someone exfiltrating a database query\n- Too many MCP tools confuses agents\n  - As of writing, 40 is the limit, and probably should be less\n  - Show how to limit tools from an MCP server exposed to Cursor/Claude\n\n## Wrap Up\n\n- This all bound to change. AI and MCP changes week to week\n- Good job, vibe on.\n","slug":"intro","title":"Intro","section":"The First Section","icon":"info-circle","filePath":"/home/runner/work/complete-intro-to-mcp/complete-intro-to-mcp/lessons/01-the-first-section/A-intro.md","nextSlug":"/lessons/ai/thoughts-on-ai","prevSlug":null}},"__N_SSG":true},"page":"/lessons/[section]/[slug]","query":{"section":"the-first-section","slug":"intro"},"buildId":"Iid2voQ625OYbGGP3Puu0","isFallback":false,"gsp":true,"scriptLoader":[]}</script></body></html>
