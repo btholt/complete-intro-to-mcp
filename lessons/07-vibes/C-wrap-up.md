@@ -11,9 +11,11 @@ So what should you do now?
 - If you're more keen on the LLM client side
   - Go vibe code some more apps! This is a learned skill and it's one you'll get a lot of experience in by just doing it.
   - Try a few of the various IDEs. I was pretty hard stuck in the VS Code agent experience but once I got into Claude Code it just fit my mental model so well. Go try them all!
-  - Go try more of the best MCP servers and see what other cool productivity unlocks are awaiting you.
+  - Go try [more of the best MCP servers][awesome] and see what other cool productivity unlocks are awaiting you.
 - [Go try one of the clients][clients] that supports the newer features like elicitation or sampling. Really get your head arounds what's coming.
 
 I hope you enjoyed the course and please tweet / post on LinkedIn what you learned and what you built! It makes me so stoked to see you grow!
 
 -- Brian
+
+[awesome]: https://github.com/punkpeye/awesome-mcp-servers
