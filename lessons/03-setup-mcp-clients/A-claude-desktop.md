@@ -10,3 +10,4 @@ Once you've downloaded Claude Desktop and logged into your either free or pro ac
 
 [claude]: https://claude.ai/download
 [mcp-clients]: https://modelcontextprotocol.io/clients
+[tome]: https://gettome.app

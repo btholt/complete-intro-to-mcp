@@ -37,6 +37,7 @@
 }
 
 .terms p {
+  color: var(--text-footer);
   margin: 3px;
 }
 
@@ -45,11 +46,13 @@
   text-decoration: underline;
 }
 
-.social svg, .theme-icons svg {
+.social svg,
+.theme-icons svg {
   transition: opacity 0.25s;
 }
 
-.social svg:hover, .theme-icons svg:hover {
+.social svg:hover,
+.theme-icons svg:hover {
   opacity: 0.4;
 }
 

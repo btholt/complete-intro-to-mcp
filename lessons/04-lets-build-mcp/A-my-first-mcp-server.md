@@ -1,3 +1,7 @@
+---
+title: "My First MCP Server"
+---
+
 Without further ado, let's make our first MCP server!
 
 > We are going to make a local MCP server first, the "old way", or the STDIO way, however you want to label it. We'll do the SSE or the remote way later in the course.
@@ -46,6 +50,10 @@ await server.connect(transport);
 - It registers itself as an MCP server with the `new McpServer` instantiation
 - We then add one tool to it, one that adds two numbers together. Obviously an LLM can do this but we're just going for simple here.
 - We then specify the transport we're using is stdio, which is using bash's stdin to send info to the MCP server. SSE would be the other kind of transport, and we'll get to that.
+- We're also using [Zod][zod] here. Zod is a validation library that's built TypeScript first. It's really useful as you can define what schemas are expected and it serves several purposes.
+  - It tells the LLM in strong terms "whatever you give here, it must pass this zod validation. LLMs do well with strong guidelines
+  - It's documentation for future you of what this tool call needs.
+  - It also allows you to add annotations that tell the LLM "this variable named X expects Y type and in plain English, this variable is Z."
 
 So try starting your server and you'll it'll just do nothing. That's because you need to use stdin to send it commands! Let's try one.
 
@@ -73,3 +81,4 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVe
 [stdio]: https://btholt.github.io/complete-intro-to-linux-and-the-cli/streams-and-pipes
 [rpc]: https://en.wikipedia.org/wiki/JSON-RPC
 [jq]: https://jqlang.org/
+[zod]: https://zod.dev/

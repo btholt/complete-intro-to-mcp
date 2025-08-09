@@ -1,3 +1,7 @@
+---
+title: "Let's Vibe Code"
+---
+
 Let's vibe.
 
 Which still makes me feel like I'm a millennial trying to impress his zoomer nephew every time I say it. What I actually mean is let's supervise an agent writing some code for us, and let's attach some MCP servers to enhance the capabilities of our coding agent.
@@ -123,3 +127,8 @@ That's really it! That's vibe coding!
 [cursor]: https://cursor.com
 [figma]: https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/
 [mcp]: https://modelcontextprotocol.io/llms-full.txt
+[github]: https://github.com/github/github-mcp-server
+[neon]: https://neon.com/docs/ai/neon-mcp-server
+[playwright]: https://github.com/microsoft/playwright-mcp
+[context7]: https://github.com/upstash/context7
+[vercel]: https://vercel.com/docs/mcp/vercel-mcp

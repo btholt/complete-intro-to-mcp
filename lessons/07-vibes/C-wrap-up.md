@@ -19,3 +19,4 @@ I hope you enjoyed the course and please tweet / post on LinkedIn what you learn
 -- Brian
 
 [awesome]: https://github.com/punkpeye/awesome-mcp-servers
+[clients]: https://modelcontextprotocol.io/clients

@@ -39,6 +39,11 @@ a {
   text-decoration: none;
 }
 
+.lesson-content a {
+  text-decoration: underline;
+  color: var(--primary);
+}
+
 .navbar {
   border-bottom: 1px solid #ccc;
   position: fixed;
@@ -254,6 +259,11 @@ header .cta-btn {
 .lesson p,
 .lesson li {
   line-height: 180%;
+  color: var(--lesson-text);
+}
+
+.lesson li::marker {
+  color: var(--primary);
 }
 
 .lesson-links {
@@ -332,6 +342,10 @@ blockquote {
   border-radius: 5px;
   width: 100%;
   margin: 10px 0;
+}
+
+blockquote > *:first-child {
+  margin-top: 0;
 }
 
 blockquote > *:last-child {
@@ -522,13 +536,15 @@ ol.sections-name .lesson-details {
 code,
 pre code {
   padding: 0.5rem;
+  text-wrap: wrap;
 }
 
 code,
 pre code,
 pre code.hljs {
-  background-color: var(--emphasized-bg);
+  background-color: var(--code-bg);
   color: #000;
+  border-radius: 5px;
 }
 
 pre code,

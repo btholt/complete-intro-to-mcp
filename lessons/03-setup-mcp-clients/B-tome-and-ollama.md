@@ -25,6 +25,8 @@ Again, keep in mind that running inference on a model is very computationally ex
 
 I asked the creators of Tome if they wanted to share anything with you all and they said if you're passionate about LLMs, agents, and/or MCP servers to join them on [Discord][discord]!
 
+> I'll put one shoutout in here for [OpenRouter.ai][openrouter]. If you want to try a lot of models and make it easy to switch between them, OpenRouter makes that very simple to do. Lots of other services exist (including on Databricks!) but OpenRouter works very well in this use case.
+
 [tome]: https://gettome.app
 [discord]: https://discord.com/invite/9CH6us29YA
 [ollama]: https://ollama.com/
@@ -33,3 +35,4 @@ I asked the creators of Tome if they wanted to share anything with you all and t
 [r1]: https://ollama.com/library/deepseek-r1
 [phi]: https://ollama.com/library/phi4-mini
 [llama]: https://ollama.com/library/llama3.2
+[openrouter]: https://openrouter.ai/

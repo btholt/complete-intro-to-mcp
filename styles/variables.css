@@ -25,6 +25,7 @@
 
   --emphasized-bg: #f9fafb;
   --emphasized-border: var(--primary);
+  --code-bg: var(--emphasized-bg);
 
   /* Header gradient - keep this subtle */
   --header-bg: linear-gradient(
@@ -62,6 +63,7 @@
 
   --emphasized-bg: #1f2937;
   --emphasized-border: var(--primary);
+  --code-bg: #ccc;
 
   /* Header gradient for dark mode */
   --header-bg: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
