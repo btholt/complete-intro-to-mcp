@@ -1,3 +1,18 @@
+---
+description: >-
+  Brian Holt's Complete Intro to MCP guide focuses on two MCP clients—Claude
+  Desktop and Tome—and shows how to download Claude Desktop, log in (free tier
+  sufficient), and connect your MCP servers via the 'Connect your tools to
+  Claude' panel for local tool integration.
+keywords:
+  - mcp
+  - model context protocol
+  - claude desktop
+  - tome
+  - anthropic claude
+  - local mcp servers
+  - ai tools
+---
 The first thing we need is an MCP client. There are [many, many, many MCP clients][mcp-clients] but I'm going to focus us on two: [Claude Desktop][claude] or [Tome][tome].
 
 > If you're unsure which to use, go with Claude. [Click here][claude] to go download Claude Desktop

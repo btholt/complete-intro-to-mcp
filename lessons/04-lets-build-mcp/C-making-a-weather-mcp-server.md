@@ -1,5 +1,20 @@
 ---
-title: "Making a Weather MCP Server"
+title: Making a Weather MCP Server
+description: >-
+  Brian Holt guides you in building a practical MCP server that augments an LLM
+  with live data by creating a weather tool with the Open-Meteo API. The example
+  walks through the weather.js code to register a Get Current Weather tool,
+  handle latitude/longitude inputs, fetch data, and return structured outputs
+  for AI agents. A hands-on tutorial on the Model Context Protocol (MCP) for
+  powering AI applications with real-time weather information.
+keywords:
+  - MCP
+  - Model Context Protocol
+  - Open-Meteo
+  - weather API
+  - AI agents
+  - Brian Holt
+  - weather tool
 ---
 
 So let's make an actually useful MCP server. An MCP server is a way to augment the abilities of the LLM you're working with. In our case, we're working with chat bots, so let's augment their ability to retrieve reliable data.

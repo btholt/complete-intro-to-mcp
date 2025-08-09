@@ -1,3 +1,19 @@
+---
+description: >-
+  Brian Holt explains practical options for running tool-enabled LLMs within the
+  MCP framework, including Tome (an open-source chat app supporting OpenAI and
+  Google Gemini) and Ollama for local model hosting, with guidance on selecting
+  tool-capable models and managing GPU/CPU inference costs. It also highlights
+  OpenRouter and the Tome Discord community for easy model switching within MCP.
+keywords:
+  - Tome
+  - Ollama
+  - tools calling
+  - OpenRouter
+  - MCP
+  - AI agents
+  - Brian Holt
+---
 I wanted to give you a second option if for whatever reason you don't want to use Claude Desktop. Again, there are a myriad of choices but I was particularly impressed with [Tome][tome]. Tome is an open source app to chat with LLMs. It supports OpenAI, Google Gemini, and Ollama - so if you want to use either OpenAI or Gemini, here's the place to do it.
 
 > Note that Tome only (as of writing) supports tools, not prompts or resources. But honestly tools are the most important and fun anyway.

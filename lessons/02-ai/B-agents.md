@@ -1,3 +1,20 @@
+---
+description: >-
+  Brian Holt clarifies what an 'agent' means in AI—it's a loosely defined term
+  distinct from a plain LLM—and explains how agentic workflows use plan,
+  generate, evaluate, and iterate to accomplish tasks, with coding IDE agents
+  like Replit, v0, Create.xyz, Same.new, DataButton, and app.build as concrete
+  examples. He invites hands-on experimentation with online coding agents, tying
+  the discussion to the Complete Intro to MCP course and its focus on AI agents
+  and the Model Context Protocol tools.
+keywords:
+  - ai agents
+  - agent vs llm
+  - coding IDE agents
+  - model context protocol
+  - MCP framework
+  - Brian Holt
+---
 I want to dwell a second on the term "agent" / "agentic" as it's a term you probably hear a lot and may wonder what the precise definition is. We'll be using them here so it bears a second to define the term.
 
 I specifically was confused with what an agent was in relation to just LLMs in general when I was first introduced to the terms. When is it an agent versus just being an LLM?

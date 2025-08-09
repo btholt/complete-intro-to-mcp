@@ -1,5 +1,20 @@
 ---
-title: "Let's Vibe Code"
+title: Let's Vibe Code
+description: >-
+  Brian Holt's Complete Intro to MCP teaches you how to supercharge an AI coding
+  agent using the Model Context Protocol (MCP), with hands-on setup for Claude
+  Code, Cursor, Windsurf, VS Code Copilot in agent mode, and Zed. The guide also
+  covers MCP server workflows via GitHub, Neon for databases, Playwright,
+  Context7, Figma, and Vercel, plus practical tips on safety, ORMs like Drizzle,
+  and keeping docs up to date.
+keywords:
+  - mcp
+  - model context protocol
+  - ai agents
+  - coding agent
+  - brian holt
+  - ai tools
+  - github mcp server
 ---
 
 Let's vibe.

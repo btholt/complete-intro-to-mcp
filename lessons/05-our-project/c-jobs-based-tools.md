@@ -1,3 +1,20 @@
+---
+description: >-
+  Brian Holt presents a practical, jobs-oriented MCP server from the Complete
+  Intro to MCP course, illustrating how to implement three focused actions with
+  the Model Context Protocol: create high-priority bugs, create low-priority
+  feature requests, and update ticket status. The piece includes JavaScript code
+  for a minimal MCP server and discusses reliability over flexibility using
+  real-world tool selection inspired by Qwen3.6B experiments.
+keywords:
+  - mcp
+  - model context protocol
+  - ai agents
+  - bug tracking
+  - ticket status update
+  - Brian Holt
+  - Complete Intro to MCP
+---
 Here's a real interaction using the complete MCP server I just had with Qwen3:.6B.
 
 ```

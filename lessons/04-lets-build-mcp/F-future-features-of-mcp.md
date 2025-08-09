@@ -1,5 +1,20 @@
 ---
-title: "Future Features of MCP"
+title: Future Features of MCP
+description: >-
+  Written by Brian Holt, this post surveys evolving MCP client features—Roots
+  for selective file access, Sampling with a human in the loop for direct
+  prompting, and Elicitation for follow-up questions—and explains how the Model
+  Context Protocol enables safer, more capable AI tools. It notes these features
+  are experimental and not yet supported by all clients, with expected support
+  in Claude Desktop and Tome, and links to the MCP docs for details.
+keywords:
+  - MCP
+  - Model Context Protocol
+  - Roots
+  - Sampling
+  - Elicitation
+  - AI Tools
+  - Brian Holt
 ---
 
 Like we've said before, MCP is really new and evolving quickly. Lots of new features and ideas are being tested out and possibly being adopted while others may fade out as time goes on. We are still learning new ways to harness the power of LLMs, both from a capability perspective as well as an efficiency one.

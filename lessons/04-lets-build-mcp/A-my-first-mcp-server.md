@@ -1,5 +1,20 @@
 ---
-title: "My First MCP Server"
+title: My First MCP Server
+description: >-
+  Brian Holt guides you through building a local MCP server (Model Context
+  Protocol) using stdio transport, registering an addition tool with Zod
+  validation, and testing via CLI with JSON RPC 2.0. This hands-on example uses
+  the @modelcontextprotocol/sdk in Node.js to show how MCP servers communicate
+  over standard input/output, laying the groundwork for future SSE-based
+  transports and AI tool integration.
+keywords:
+  - MCP server
+  - Model Context Protocol
+  - JSON RPC 2.0
+  - StdioServerTransport
+  - Node.js
+  - Zod
+  - Brian Holt
 ---
 
 Without further ado, let's make our first MCP server!

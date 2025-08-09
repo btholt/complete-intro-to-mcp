@@ -1,3 +1,18 @@
+---
+description: >-
+  Brian Holt explains MCP transport options, contrasting the local stdio setup
+  with remote MCP servers, why the SSE-based session model was short-lived and
+  deprecated in favor of streamable HTTP, and how this shift enables a more
+  resilient, resumable AI agent communication workflow.
+keywords:
+  - MCP
+  - Model Context Protocol
+  - streamable HTTP
+  - SSE
+  - stdio transport
+  - remote MCP server
+  - Brian Holt
+---
 We're not going to dwell here too much because this was a pretty short lived idea, being introduced in November '24 and being deprecated in March '25 in favor of streamable HTTP, but it's out there and I want it to not be unfamiliar to you.
 
 So the problem we have with the stdio transport (transport is what we call the way info is exchanged - think HTTP vs WebSockets, different ways of communicating) we've been using so far is that it only works locally. You have to download an MCP server from somewhere and run it yourself. This offers a lot of advantages - it will have access to local files, USB, terminals, etc. and you can choose how to scale it. It also could be a bit of a security liability - you're letting arbitrary code run locally and the "person" in charge is an agent. This is one of the biggest critcisms in general about MCP servers. You also have to be sure to update it yourself - if the MCP maker pushes an update, you need to go grab it yourself.

@@ -1,5 +1,20 @@
 ---
-title: "MCP Server Design"
+title: MCP Server Design
+description: >-
+  Brian Holt guides you through building a real MCP server for an issue tracker,
+  including step-by-step setup (clone the app, install dependencies, create an
+  MCP directory, and run the server) and a sample main.js that registers a
+  database-schema resource. The tutorial emphasizes using MCP to orchestrate
+  end-to-end tasks with Claude Desktop for conversational ticketing—addressing
+  auth, operation order, and consistent tagging—so you can create tickets,
+  assign users, and apply correct labels via AI.
+keywords:
+  - MCP server
+  - Model Context Protocol
+  - issue tracker
+  - Claude Desktop
+  - AI tools
+  - Brian Holt
 ---
 
 We are going to do a real project now: an MCP server for an [issue tracker][issue]!

@@ -1,3 +1,19 @@
+---
+description: >-
+  Part of Brian Holt's Complete Intro to MCP course, this section covers Node.js
+  setup (recommended v22.18+ and using fnm) with notes on Bun compatibility,
+  plus a Tools FAQ detailing the preferred development stack: VS Code with
+  specific themes and extensions, Cursor for code generation, Firefox, and a
+  streamlined Terminal setup (zsh, Dracula theme, Starship prompt, Nerd Font).
+keywords:
+  - Brian Holt
+  - Complete Intro to MCP
+  - Node.js setup
+  - fnm
+  - VS Code extensions
+  - Starship prompt
+  - AI tools
+---
 ## Node.js
 
 You'll need to have a Node.js version installed, and preferably something after v22.18.

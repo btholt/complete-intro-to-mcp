@@ -1,3 +1,19 @@
+---
+description: >-
+  Brian Holt explains Resources in MCP, showing how they differ from tools by
+  providing static, non-dynamic context to an LLM. The guide walks through
+  creating an MCP server and a static resource (database-schema) with code,
+  attaching it in Claude Desktop, and querying the LLM to explain the schema in
+  plain English. It also covers resource templates, their limitations, and
+  practical steps for using Resources in an MCP project like an issue tracker.
+keywords:
+  - mcp
+  - model context protocol
+  - resources
+  - mcp server
+  - database schema
+  - brian holt
+---
 We've been working with tools so far, let's go on to resources.
 
 Resources are a bit different than tools. Tools are meant to be given to an LLM and then the LLM can decide to use the tools or not. Think of it like handing a toolbox to your general contractor who is working on your house: they could use one of the tools if they found something that needed it, or if not they just won't use it.

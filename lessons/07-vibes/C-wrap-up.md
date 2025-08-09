@@ -1,3 +1,18 @@
+---
+description: >-
+  Congrats on completing Complete Intro to MCP by Brian Holt. This wrap-up
+  outlines practical next steps: build or open-source MCP servers for your apps,
+  explore MCP client workflows and tools across IDEs, and experiment with new
+  MCP servers and clients to unlock greater AI-agent productivity. Share your
+  learnings on social to celebrate your growth.
+keywords:
+  - mcp
+  - model context protocol
+  - ai agents
+  - llm clients
+  - mcp servers
+  - open source mcp server
+---
 Congrats! You finished the course!
 
 I hope you learned a lot! I certainly did in the creation of the course. I hope you walked away with a comfort working with agents and chatbots and how to give them tools, resources, and prompts to get out of them what you want. I hope you learned a few tips and tricks from me that I've learned over the past year or so working a lot with LLMs.

@@ -1,5 +1,19 @@
 ---
-title: "Streamable HTTP"
+title: Streamable HTTP
+description: >-
+  Brian Holt walks you through building a Streamable HTTP MCP server in Node.js
+  with Express, using a single /mcp endpoint and UUID-based sessions for
+  client-server communication. The guide contrasts streamable HTTP with SSEs,
+  demonstrates a concrete MCP setup (POST for client messages, GET for server
+  messages, DELETE to end sessions), and covers scalability and security
+  considerations plus inspector usage.
+keywords:
+  - MCP
+  - Model Context Protocol
+  - Streamable HTTP
+  - Node.js
+  - Express
+  - session management
 ---
 
 Mark my words, there is about to be a cambrian explosion of MCP server frameworks for Node.js that will handle a lot of this plumbing for you. But there isn't yet so we're going to have to do some manual housekeeping of session data. We're also not going to implement this in the most scalable way, but I'll leave that as an exercise to you to do.

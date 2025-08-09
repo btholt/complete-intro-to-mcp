@@ -1,5 +1,18 @@
 ---
-title: "Using Our First MCP Server"
+title: Using Our First MCP Server
+description: >-
+  Brian Holt walks you through setting up and using an MCP server with Claude
+  Desktop and Tome, including the JSON config snippet, how to point your client
+  to mcp.js, and steps to verify the model uses the tool. This practical guide
+  from Complete Intro to MCP covers model context protocol tools and AI tool
+  integration for building powerful AI applications.
+keywords:
+  - MCP server setup
+  - Model Context Protocol
+  - Claude Desktop
+  - Tome
+  - AI tools
+  - Brian Holt
 ---
 
 Now we have a valid MCP server, let's use it!

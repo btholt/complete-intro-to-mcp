@@ -4,7 +4,7 @@ import "dotenv/config";
 import fs from "fs/promises";
 import { getLesson, getLessons } from "../data/lesson.js";
 import { zodResponseFormat } from "openai/helpers/zod";
-import getPrompt from "./getSystemPrompt.js";
+import getPrompt from "./getPrompt.js";
 import assert from "assert";
 import path from "path";
 import { z } from "zod";
@@ -43,8 +43,8 @@ async function summarize(section, lesson) {
     console.log(`⏺️ ${lesson.fullSlug}`);
   } else {
     try {
-      const completion = await openai.beta.chat.completions.parse({
-        model: "gpt-4o-2024-08-06",
+      const completion = await openai.chat.completions.parse({
+        model: "gpt-5-nano-2025-08-07",
         messages: [
           { role: "system", content: getPrompt(config) },
           {

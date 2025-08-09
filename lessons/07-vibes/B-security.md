@@ -1,3 +1,20 @@
+---
+description: >-
+  Brian Holt emphasizes security as the top priority when using AI agents and
+  MCP servers, urging you to vet and remove unreliable MCPs and to verify any
+  that you employ. He introduces the Paperclip Golden Retriever as a cautionary
+  reminder that agents will aggressively pursue prompts, so craft precise
+  prompts and thoroughly validate outputs. This guidance helps you safely build
+  AI tools with the Model Context Protocol and the MCP framework.
+keywords:
+  - mcp security
+  - ai agents safety
+  - model context protocol
+  - paperclip maximizer
+  - paperclip golden retriever
+  - prompt engineering safety
+  - Brian Holt
+---
 I've talked about this a lot throughout the course, and I just want to drive home in its own section that security should be top of mind for you while working with agents and MCP servers.
 
 ## Malicious or Bad MCP Servers

@@ -1,3 +1,19 @@
+---
+description: >-
+  Brian Holt explains the difference between prompts and resources in the MCP
+  framework and shows how to create and share prompt templates. The guide walks
+  you through building an MCP server that uses an Airbnb/Idiomatic.js/Standard
+  style guide to generate code-review feedback from an LLM, with steps to
+  integrate Claude or Tome for real-time feedback.
+keywords:
+  - mcp
+  - model context protocol
+  - prompts
+  - resources
+  - code review
+  - Airbnb style guide
+  - Claude
+---
 This one ends working fairly similarly to a resource but the idea is that it's a template for a prompt. Imagine you have common prompt you use a lot and it just needs a little tweak here and there to fit what you're doing. Or you have a team of people that need to share templates between them and you want one place to update it and automatically push it to your colleagues. Or maybe even a company could ship some canned prompts that work well with their tools (e.g. here's a good prompt for working with Neon.com). That's what prompts are for.
 
 > Resources are meant more to be context given to an LLM while prompts are meant more to be commands for the LLM to do. The line is a bit blurry here so don't worry too much about it – I think there are still some iterations left before we land on the exact what MCP servers will work.

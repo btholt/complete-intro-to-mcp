@@ -1,5 +1,20 @@
 ---
-title: "Thoughts on AI and Software Dev"
+title: Thoughts on AI and Software Dev
+description: >-
+  Brian Holt shares his view on how AI will reshape software development,
+  arguing that developers should embrace AI tools and AI agents to stay ahead.
+  He explains that the software industry isn’t shrinking, but the way we write
+  code will evolve, with responsible, AI-assisted coding blending
+  agent-generated and hand-written work. This perspective emphasizes practical
+  adoption now, continual learning, and owning every line of code, AI-generated
+  or not.
+keywords:
+  - AI in software development
+  - future of coding
+  - embrace AI tools
+  - AI agents
+  - software developer career
+  - Brian Holt
 ---
 
 I've been doing web development for over fifteen years now – I started in PHP, did frontend, Python, Java, Rust, C++, and a handful of other things. I've written, shipped, maintained, and debugged a lot of code. And I love it. I love it so much I do it in my spare time and I teach it to others.
