@@ -27,5 +27,6 @@
     "brian holt"
   ],
   "productionBaseUrl": "",
-  "csvPath": "./out/lessons.csv"
+  "csvPath": "./out/lessons.csv",
+  "llmFullTextPath": "./out/llms.txt"
 }
