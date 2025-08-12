@@ -53,7 +53,7 @@ This might be next in terms of impact in my workflow. This allows my agent to cr
 
 A few point of caution with database
 
-- Don't give an agent a database you can't afford to be dropped. Agents are infamous for doing things "this migration isn't working. I'm going to drop everything and recreate it" and in the process dropping all your data.
+- Don't give an agent access to a database you can't afford to have dropped. Agents are infamous for doing things "this migration isn't working. I'm going to drop everything and recreate it" and in the process dropping all your data.
 - Be cautious with what other MCP servers you are using. A malicious MCP server you install along side your database MCP server in theory could convince the agent that it needs all the data from your database at which point it could exfiltrate all that data. So be careful with sensitive data and be careful with untrusted MCP servers. That's just good advice in general.
 - Really good idea to give the agent an ORM to work with, with [Drizzle][drizzle] being my favorite. Agents do better with TypeScript than they do with SQL, and are notoriously bad at managing migrations. If you do add an ORM, be sure to be put language in there "DO NOT MODIFY THE MIGRATIONS DIRECTLY, ONLY USE DRIZZLE." Then watch it ignore you and do it anyway 😂
 

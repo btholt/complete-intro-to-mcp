@@ -14,9 +14,10 @@ keywords:
   - Frontend Masters
   - JavaScript
 ---
-Hello! And welcome to the Complete Intro to MCP as taught for Frontend Masters! This for anyone looking to level up their skills with AI. No AI experience is necessary! I will show you all the tools you need to use and this will be super helpful to AI afficindados and newbies alike.
 
-MCP is a protocol for augmenting the abilities of various AI tools to _do_ things. You'd write an MCP server to interact with an API or to create a calendar invite or something like that. It mixes the determinism of code with the flexibility of AI/agents/LLMs. You could try to get the AI to generate code and run it on the fly (and sometimes this is a good idea) but this useful capabilities you want your AI to be able to repeatedly do reliably. It gives your agent tools to act.
+Hello! And welcome to the Complete Intro to MCP as taught for Frontend Masters! This is for anyone looking to level up their skills with AI. No AI experience is necessary! I will show you all the tools you need to use and this will be super helpful to AI aficionados and newbies alike.
+
+MCP is a protocol for augmenting the abilities of various AI tools to _do_ things. You'd write an MCP server to interact with an API or to create a calendar invite or something like that. It mixes the determinism of code with the flexibility of AI/agents/LLMs. You could try to get the AI to generate code and run it on the fly (and sometimes this is a good idea) but these are useful capabilities you want your AI to be able to repeatedly do reliably. It gives your agent tools to act.
 
 ## Who is this course for?
 

@@ -23,9 +23,9 @@ Without further ado, let's make our first MCP server!
 
 At its most simple, an MCP server is just that, a server. It runs a locally running server that allows you to feed it information via [standard IO][stdio] an LLM can call. In truth, MCP servers are at their core super simple, and you'll probably think it's silly that we wrap them in such a mystique (it is silly.)
 
-It's bit of specialized server as it expects certain input to return certain shapes of responses, but beyond that it's a bog-standard server, so much so that you can literally write your MCP servers in plain Node.js/Bun/Python/whatever.
+It's a bit of a specialized server as it expects certain input to return certain shapes of responses, but beyond that it's a bog-standard server, so much so that you can literally write your MCP servers in plain Node.js/Bun/Python/whatever.
 
-We'll be using `@modelcontextprotocol/sdk` which is a little toolkit that helps you get started. It's totally necessary as MCP protocol is fairly simple but it just helps us make sure that everything get's tracked the right way.
+We'll be using `@modelcontextprotocol/sdk` which is a little toolkit that helps you get started. It's not totally necessary as the MCP protocol is fairly simple but it just helps us make sure that everything gets tracked the right way.
 
 So create a new directory, do `npm init -y` and run `npm install @modelcontextprotocol/sdk`. In a new file called mcp.js, add
 
@@ -70,7 +70,7 @@ await server.connect(transport);
   - It's documentation for future you of what this tool call needs.
   - It also allows you to add annotations that tell the LLM "this variable named X expects Y type and in plain English, this variable is Z."
 
-So try starting your server and you'll it'll just do nothing. That's because you need to use stdin to send it commands! Let's try one.
+So try starting your server and you'll see it'll just do nothing. That's because you need to use stdin to send it commands! Let's try one.
 
 ```bash
 echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {"name": "add", "arguments": {}}}' | node mcp.js | jq

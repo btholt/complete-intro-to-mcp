@@ -15,7 +15,8 @@ keywords:
   - Brian Holt
   - Frontend Masters
 ---
-So let's start with what I would call the wrong way of doing MCP – a one-to-one mapping of an API call to an MCP tool. Our issue tracker about 15ish API calls, we're going to make each one into a tool. We'll get into why this could be a bad call but for now, it's the simplest conceptually to grasp so let's go do that. Or rather, I'm going to make you actually write the code for one and then let you copy/paste the rest. Feel free to do the whole thing, it's just a lot of code of doing the same thing.
+
+So let's start with what I would call the wrong way of doing MCP – a one-to-one mapping of an API call to an MCP tool. Our issue tracker has about 15ish API calls, we're going to make each one into a tool. We'll get into why this could be a bad call but for now, it's the simplest conceptually to grasp so let's go do that. Or rather, I'm going to make you actually write the code for one and then let you copy/paste the rest. Feel free to do the whole thing, it's just a lot of code of doing the same thing.
 
 First, let's familiarize ourselves with the codebase in the Issues Tracker app. [The code is here on GitHub][issues], specifically the API documentation. Let's skip making the auth headers - it's too easy to prove my point. Getting an agent to successfully sign up and then manage a session just never worked for me, even when I was really trying to. So I made it so you can just nab a valid API key from the frontend. Sign up as a user and click "copy API key" from the header.
 

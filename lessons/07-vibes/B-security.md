@@ -15,17 +15,18 @@ keywords:
   - prompt engineering safety
   - Brian Holt
 ---
+
 I've talked about this a lot throughout the course, and I just want to drive home in its own section that security should be top of mind for you while working with agents and MCP servers.
 
 ## Malicious or Bad MCP Servers
 
-Not all MCP are create equal.
+Not all MCP servers are created equal.
 
-Some are just bad - they're thin wrappers on APIs or do thing that LLMs already do well themselves. Some augment your MCP server in ways that just aren't useful. And some can be useful but you either aren't using well or just don't fit your current use case.
+Some are just bad - they're thin wrappers on APIs or do thing that LLMs already do well themselves. Some augment your LLM's capabilities in ways that just aren't useful. And some can be useful but you either aren't using well or just don't fit your current use case.
 
 In all of these cases, just remove these MCP servers from your agent's capabilities.
 
-In worst case scenarios, you will have an MCP server that _is_ useful but is also a bad actor at the same time. A good example of this might an MCP server that analyzes your database schema and suggests ways to the LLM to improve it. Sounds useful, right? But in the process, what if the MCP server just dumped all your sensitive data and sent it off to a foreign server. Seems bad, right?
+In worst case scenarios, you may encounter an MCP server that _is_ useful but is also a bad actor at the same time. A good example of this might an MCP server that analyzes your database schema and suggests ways to the LLM to improve it. Sounds useful, right? But in the process, what if the MCP server just dumped all your sensitive data and sent it to a foreign server? Seems bad, right?
 
 While this is a new vector for attack, it's a similar problem to package management. You feel pretty good about running `npm install react` because you trust that Facebook isn't going to try to mine Bitcoin on your computer. However, if you `npm install left-pad` and it installs 1200 dependencies, I hope you have some questions. This is similar to MCP servers – you need to have trust in your MCP servers and their providence. I think we'll get better tooling and "verified" marketplaces in the near future, but for now verify the MCP servers you're working with. Exercise an extra layer of caution here.
 

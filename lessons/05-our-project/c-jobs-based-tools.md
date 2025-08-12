@@ -15,7 +15,8 @@ keywords:
   - Brian Holt
   - Complete Intro to MCP
 ---
-Here's a real interaction using the complete MCP server I just had with Qwen3:.6B.
+
+Here's a real interaction using the complete MCP server I just had with Qwen3:0.6B.
 
 ```
 > 👤 using the issues-tracker-server mcp server, create a new issue in my issue tracker that tracks that I need to fix the login bug and mark it urgent and assign it to me. use the api key <API_KEY>
@@ -26,7 +27,7 @@ Here's a real interaction using the complete MCP server I just had with Qwen3:.6
 This is where just mapping your API server to an MCP server runs into trouble.
 
 - Sequential calls are hard to get right. In this case it'd need to use the API key to try to figure out who you are, then call create issue with that ID.
-- Giving a agent lots of tools may mean that it can be more flexible but it also leads to confusion. Just by including the health check it'll call it at the most random times! Agents will make weird, questionable, or even downright-wrong decisions with which tool to use. A smaller set of focused tools is much more likely to succeed.
+- Giving a agent lots of tools may mean that it can be more flexible but it also leads to confusion. Just by including the health check, it will call it at unexpected times! Agents will make weird, questionable, or even downright-wrong decisions with which tool to use. A smaller set of focused tools is much more likely to succeed.
 - Generally speaking, you know the few actions you want your model to take. It's better to just codify these and slowly add more actions later.
 
 I'm going to call this "jobs oriented" MCP server as opposed to "API oriented". I made up these terms. But it suits what we're trying to get done today.

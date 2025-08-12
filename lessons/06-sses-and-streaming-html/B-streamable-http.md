@@ -16,7 +16,7 @@ keywords:
   - session management
 ---
 
-Mark my words, there is about to be a cambrian explosion of MCP server frameworks for Node.js that will handle a lot of this plumbing for you. But there isn't yet so we're going to have to do some manual housekeeping of session data. We're also not going to implement this in the most scalable way, but I'll leave that as an exercise to you to do.
+Mark my words, there is about to be a Cambrian explosion of MCP server frameworks for Node.js that will handle a lot of this plumbing for you. But there isn't yet so we're going to have to do some manual housekeeping of session data. We're also not going to implement this in the most scalable way, but I'll leave that as an exercise to you to do.
 
 So let's talk about how streamable HTTP is different than SSEs. For one, there's just the one endpoint - you don't have to GET to one and POST to the other.
 
