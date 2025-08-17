@@ -48,7 +48,7 @@ async function generateFullText() {
           fullText += "\n\n=================\n\n";
         }
 
-        fullText += `${title}\n\n${markdownContent}`;
+        fullText += `# ${title}\n\n${markdownContent}`;
 
         console.log(`✅ Added lesson: ${title}`);
       } catch (error) {

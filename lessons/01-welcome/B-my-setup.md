@@ -14,6 +14,7 @@ keywords:
   - Starship prompt
   - AI tools
 ---
+
 ## Node.js
 
 You'll need to have a Node.js version installed, and preferably something after v22.18.
@@ -44,6 +45,13 @@ I _think_ this course would work with recent versions of [bun][bun] but it's unt
   - [Starship Prompt][starship] – Very cool prompt that's just pretty. Also shows you what sort of project you're in which is occasionally useful
   - [Caskaydia Cove Nerd Font][nerd] – This works with Starship prompt to give you the JS logos and all those extra glyphs. It's based on Cascadia Code.
 
+## AI Assistant
+
+You can use whatever AI assistant for this course, and I suggest you do. If you don't learn something from the course, it's useful to ask an LLM like ChatGPT or Claude to see if they can help you understand. Two pro tips for this class in particular.
+
+- You can find the full text of all these lessons at [https://mcp.holt.courses/llms.txt][llms]. That way you can load everything I've written into the context of the LLM and ask them about the content of the course with the context of everything.
+- Likewise, modelcontextprotocol.io has its entire content of its docs at [modelcontextprotocol.io/llms-full.txt][mcp]. Because MCP changes at such a quick pace, it's useful to load some or all of this context into your LLM. Because this one is so big (some 12K lines last I checked) you may not want to load _all_ of this into context, maybe just the sections you need.
+
 [ligatures]: https://worldofzero.com/posts/enable-font-ligatures-vscode/
 [monolisa]: https://www.monolisa.dev/
 [vscode-icons]: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
@@ -52,3 +60,5 @@ I _think_ this course would work with recent versions of [bun][bun] but it's unt
 [nerd]: https://www.nerdfonts.com/font-downloads
 [fnm]: https://github.com/Schniz/fnm
 [bun]: https://bun.sh/
+[llms]: https://mcp.holt.courses/llms.txt
+[mcp]: https://modelcontextprotocol.io/llms-full.txt
