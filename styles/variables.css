@@ -49,7 +49,7 @@
 
   --lesson-text: rgb(218, 218, 218);
 
-  --bg-main: #111827;
+  --bg-main: black;
   --bg-dots: var(--primary);
   --bg-lesson: #1f2937;
   --nav-buttons: var(--primary);

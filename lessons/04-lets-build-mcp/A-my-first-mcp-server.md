@@ -87,7 +87,7 @@ You should see the MCP server respond with an answer of 8! This feels just like 
 
 So what _is_ JSON RPC? You can think of it as an alternative to REST. With REST you call endpoints that are based around a thing - e.g. you call a PATCH to /users/123 to update user 123. Your URLs are based things and the semantics of manipulating those things. JSON RPC (and XML RPC before it) is based around calling remote functions - that's it. It's literally a remote procedure call. So in this we're just giving an MCP server direction on what procedures (or functions) we want them to do. That's it!
 
-Let's see it inititializes itself!
+Let's see it initializes itself!
 
 ```bash
 echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}}' | node mcp.js | jq

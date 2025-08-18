@@ -124,7 +124,7 @@ Please:
 - DO NOT WRITE OR MODIFY MIGRATIONS YOURSELF. ONLY USE DRIZZLE FOR MIGRATIONS.
 ```
 
-This isn't necessarily the best prompt but it's a pretty good one to get started with. This is a huge chunk of work for Claude to start working on but I've found Claude Code to be up to the task. When I'm working with Cursor, Windsurf, or VS Code w/ Copilot, I generally have a different LLM (usually Claude) generate a tasklist first and then I have the LLMs follow the tasklist and mark off the their tasks one-by-one. In any case, this will get you started pretty well. I was able to "one-shot" (meaning it worked first time) the Todoist app with this.
+This isn't necessarily the best prompt but it's a pretty good one to get started with. This is a huge chunk of work for Claude to start working on but I've found Claude Code to be up to the task. When I'm working with Cursor, Windsurf, or VS Code w/ Copilot, I generally have a different LLM (usually Claude) generate a task list first and then I have the LLMs follow the task list and mark off the their tasks one-by-one. In any case, this will get you started pretty well. I was able to "one-shot" (meaning it worked first time) the Todoist app with this.
 
 I'll then usually prompt it to try a few flows with Playwright.
 

@@ -28,7 +28,7 @@ I _think_ this course would work with recent versions of [bun][bun] but it's unt
 ### What tools are your using?
 
 - Visual Studio Code – I used to work at Microsoft on VS Code so it's no surprise that I'll be using it in this course. We'll also be using a few extensions that I'll call out as we get there.
-- I also use Cursor fairly frequently as well, particulary when I have large amounts of code to generate.
+- I also use Cursor fairly frequently as well, particularly when I have large amounts of code to generate.
 - Firefox – I want more than Chromium to exist so I support Firefox where I can. Feel free to use any browser; it won't matter in this course.
 - Terminal.app – I used to use iTerm2 and Hyper but in the end I appreciate how fast the default terminal is. I'm getting more tempted to try Ghostty.
 
@@ -55,7 +55,7 @@ You can use whatever AI assistant for this course, and I suggest you do. If you 
 [ligatures]: https://worldofzero.com/posts/enable-font-ligatures-vscode/
 [monolisa]: https://www.monolisa.dev/
 [vscode-icons]: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
-[dracula]: https://draculatheme.com/terminal
+[dracula]: https://draculatheme.com/
 [starship]: https://starship.rs/
 [nerd]: https://www.nerdfonts.com/font-downloads
 [fnm]: https://github.com/Schniz/fnm
