@@ -64,3 +64,5 @@ Using the `add-server` MCP server, use the add tool to add 15 and 21 together.
 Why so specific? With such a simple use case, many models will just do it themselves and skip calling tools. This ensures that the model will know you want it to use the MCP server. I just ran `add 21 and 15` in both Tome with qwen3:8b and Claude Sonnet 4 and both _did_ choose to use the tool, but that's not always true. In any case, you should see some UI that indicates that a tool was used. If you don't see any UI indicating that then the model elected to not use the tool.
 
 And there you go! That's how you make and consume an MCP server.
+
+[fnm]: https://github.com/Schniz/fnm
