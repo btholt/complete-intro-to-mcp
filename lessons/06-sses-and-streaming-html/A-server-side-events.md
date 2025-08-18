@@ -13,9 +13,10 @@ keywords:
   - remote MCP server
   - Brian Holt
 ---
+
 We're not going to dwell here too much because this was a pretty short lived idea, being introduced in November '24 and being deprecated in March '25 in favor of streamable HTTP, but it's out there and I want it to not be unfamiliar to you.
 
-So the problem we have with the stdio transport (transport is what we call the way info is exchanged - think HTTP vs WebSockets, different ways of communicating) we've been using so far is that it only works locally. You have to download an MCP server from somewhere and run it yourself. This offers a lot of advantages - it will have access to local files, USB, terminals, etc. and you can choose how to scale it. It also could be a bit of a security liability - you're letting arbitrary code run locally and the "person" in charge is an agent. This is one of the biggest critcisms in general about MCP servers. You also have to be sure to update it yourself - if the MCP maker pushes an update, you need to go grab it yourself.
+So the problem we have with the stdio transport (transport is what we call the way info is exchanged - think HTTP vs WebSockets, different ways of communicating) we've been using so far is that it only works locally. You have to download an MCP server from somewhere and run it yourself. This offers a lot of advantages - it will have access to local files, USB, terminals, etc. and you can choose how to scale it. It also could be a bit of a security liability - you're letting arbitrary code run locally and the "person" in charge is an agent. This is one of the biggest criticisms in general about MCP servers. You also have to be sure to update it yourself - if the MCP maker pushes an update, you need to go grab it yourself.
 
 So enter the need for a "remote" MCP server - something an LLM can use like a a local stdio MCP server, but acts more like an API server where it can make those MCP calls to a remote location.
 
@@ -26,7 +27,7 @@ The first attempt of this was a "server-side event" (nearly always written as SS
 
 Does it sound messy and complicated? Yeah, it is.
 
-It does work, and for an average use case on a stable network, it's pretty okay. But the biggest problem is that if for whatever reason your session ends (bad network conditions, server crash on either side, etc.) and the session is dropped, there's no way to resume it - you just need to start again. This could be no big deal or it really could wreck your usecase.
+It does work, and for an average use case on a stable network, it's pretty okay. But the biggest problem is that if for whatever reason your session ends (bad network conditions, server crash on either side, etc.) and the session is dropped, there's no way to resume it - you just need to start again. This could be no big deal or it really could wreck your use case.
 
 So this didn't stick around very long before they replaced it with streamable HTTP, and we're just going to jump straight to that as it's better in every single way - I can't think of a reason you'd implement SSEs today other than you're concerned about supporting some client that can't / won't do streamable HTTP.
 

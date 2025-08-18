@@ -39,7 +39,7 @@ A critical part is that there is still human in the loop here because we don't w
 
 ![Sampling diagram](/images/sampling.jpeg)
 
-<small>Source: [modelcontextprotocol.io docs](sampling)</small>
+<small>Source: [modelcontextprotocol.io docs][sampling]</small>
 
 ## Elicitation
 

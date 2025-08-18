@@ -14,6 +14,7 @@ keywords:
   - database schema
   - brian holt
 ---
+
 We've been working with tools so far, let's go on to resources.
 
 Resources are a bit different than tools. Tools are meant to be given to an LLM and then the LLM can decide to use the tools or not. Think of it like handing a toolbox to your general contractor who is working on your house: they could use one of the tools if they found something that needed it, or if not they just won't use it.
@@ -22,7 +23,7 @@ Resources on the other hand are meant for the use to provide to the LLM. This wo
 
 Frankly, so far, these are _way_ less used than tools. But I can see some occasions they potentially could be. Let's say you have a Dropbox folder full of files that are indeed useful to a project, but you don't want the LLM to be able to access them whenever it wants. You could use a resource to judicially add that context yourself when you want it to be there, but not go as far as to let the LLM do it whenever it wants with a tool.
 
-One thing to note: resouces (or direct resources, as the docs refer to them as) are _not_ dynamic. You can't pass any parameters into it. It's just a static method that gets called and gives back what it gives back. If we were doing a weather resource, you'd have to hardcode in where-ever you were providing weather for.
+One thing to note: resources (or direct resources, as the docs refer to them as) are _not_ dynamic. You can't pass any parameters into it. It's just a static method that gets called and gives back what it gives back. If we were doing a weather resource, you'd have to hardcode in where-ever you were providing weather for.
 
 There is such a thing as "resource templates" where you can provide parameters to the resource, but it's still unsupported in Claude Desktop so we're going to skip it for now.
 
@@ -95,7 +96,7 @@ await server.connect(transport);
 ```
 
 - We'll reuse as this our general MCP server for the issue project so keep this one around
-- Most of it shoud look familiar to you already
+- Most of it should look familiar to you already
 - `database-schema` is the name of the resource
 - `schema://database` is the URI. this gives it a unique identifier that can be used by programs and LLMs to refer to specific resources.
 - After that it's mostly just like a tool.

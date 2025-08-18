@@ -214,6 +214,6 @@ Feel free to type this out, but in reality the _code_ isn't very different, just
 
 Essentially we've just narrowed down what we want our MCP server to do, added some strong opinions to it, and called it good. Instead of being able to have any tag be added on the fly, we're just allowing bugs and feature requests to be filed. Instead of worrying about users, we're letting it just be unassigned. This is less flexible, but after playing with it with a very small model for a while, I've had 0 errors, as opposed to the probably 60% error rate I had with the API based tools.
 
-> A note here: _sampling_ like we talked about here would be super helpful. I'd implment the tags and the users as sampling. I'd request all the available tags and users then I'd have the LLM choose the correct tags/users to apply. Elicitation could be good too - let the user choose - but if it's going to be an obvious answer then the LLM might as well do it.
+> A note here: _sampling_ like we talked about here would be super helpful. I'd implement the tags and the users as sampling. I'd request all the available tags and users then I'd have the LLM choose the correct tags/users to apply. Elicitation could be good too - let the user choose - but if it's going to be an obvious answer then the LLM might as well do it.
 
 And that's our project!!
