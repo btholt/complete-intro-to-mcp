@@ -148,3 +148,4 @@ That's really it! That's vibe coding!
 [context7]: https://github.com/upstash/context7
 [vercel]: https://vercel.com/docs/mcp/vercel-mcp
 [linear]: https://linear.app/docs/mcp
+[drizzle]: https://orm.drizzle.team/
