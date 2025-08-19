@@ -147,3 +147,4 @@ That's really it! That's vibe coding!
 [playwright]: https://github.com/microsoft/playwright-mcp
 [context7]: https://github.com/upstash/context7
 [vercel]: https://vercel.com/docs/mcp/vercel-mcp
+[linear]: https://linear.app/docs/mcp
