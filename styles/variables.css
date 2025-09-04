@@ -4,6 +4,7 @@
   --highlight: #06b6d4; /* Cyan from logo */
 
   --lesson-text: rgb(8, 8, 8);
+  --lesson-text-inverse: rgb(255, 255, 255);
 
   --text-header: #ffffff;
   --text-main-headers: #1f2937;
@@ -48,6 +49,7 @@
   --text-footer: #ffffff;
 
   --lesson-text: rgb(218, 218, 218);
+  --lesson-text-inverse: rgb(8, 8, 8);
 
   --bg-main: black;
   --bg-dots: var(--primary);

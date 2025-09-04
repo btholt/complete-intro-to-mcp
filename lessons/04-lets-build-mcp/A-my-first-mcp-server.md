@@ -51,9 +51,10 @@ server.registerTool(
     description: "Add two numbers",
     inputSchema: { a: z.number(), b: z.number() },
   },
-  async ({ a, b }) => ({
-    content: [{ type: "text", text: String(a + b) }],
-  })
+  async ({ a, b }) => {
+    return {
+        content: [{ type: "text", text: String(a + b) }],
+    }
 );
 
 // Start receiving messages on stdin and sending messages on stdout
@@ -73,7 +74,10 @@ await server.connect(transport);
 So try starting your server and you'll see it'll just do nothing. That's because you need to use stdin to send it commands! Let's try one.
 
 ```bash
+# List available tools:
 echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {"name": "add", "arguments": {}}}' | node mcp.js | jq
+
+# Call a tool:
 echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "add", "arguments": {"a": 5, "b": 3}}}' | node mcp.js
 ```
 

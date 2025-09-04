@@ -21,12 +21,25 @@ We are going to do a real project now: an MCP server for an [issue tracker][issu
 
 > Generally I avoid mass-use of AI in my courses but I feel it worthwhile to disclose that I "vibe" coded this app. It felt like it fit within the theme of the course and I wanted a fairly robust app with a frontend so you could see the changes happening in real time. There also may be AI generated bugs too! Feel free to code or "vibe" some PRs to fix them!
 
-We started into using this app a bit earlier to learn about resources but let's just recap here.
+## Setup the Issue Tracker App
+
+Note: You only need to do these steps if you didn't complete the Resources lesson earlier in the course.
 
 1. Git clone the app locally
-1. Run `npm install` in the root, frontend, and backend directories
+1. Run `npm install` in the root, frontend, and backend directories:
+
+```bash
+git clone https://github.com/btholt/mcp-issue-tracker.git
+cd mcp-issue-tracker && npm i # install dependencies in root directory
+cd frontend && npm i # install dependencies in frontend directory
+cd ../backend && npm i # install dependencies in backend directory
+cd ../
+npm run dev # run dev script in root directory to start both frontend and backend servers
+# open http://localhost:5173
+```
+
 1. Feel free to run `npm run dev` from the root directory to get both backend and frontend running and check it out at [http://localhost:5173]()
-1. Create an mcp directory in the root directory
+1. Create a `my-mcp` directory in the root directory (the `mcp` directory is the solution)
 1. In the mcp directory run `npm init -y`
 1. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`
 1. Add `"type": "module"` to the package.json

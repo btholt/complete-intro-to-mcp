@@ -20,6 +20,6 @@ The code, including the code of the site itself and the code in the exercises, a
 
 [fem]: https://frontendmasters.com/workshops/mcp/
 [course]: https://mcp.holt.courses
-[project]: https://github.com/btholt/mcp-project/
+[project]: https://github.com/btholt/mcp-issue-tracker
 
 [MCP icons created by Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/mcp)
