@@ -85,6 +85,30 @@ I really wanted to show you how to deploy after this using MCP but Vercel's MCP 
 
 Another common thing to do is to have Claude Code write an MCP server for something that doesn't have one. Then you can have your own custom made MCP server! One word of caution: be sure to provide the [full MCP docs][mcp] to the agent as it will help a _ton_. I find that LLMs always get it wrong until I provide the docs in context.
 
+## Install MCPs for Claude Code
+
+Below you will find the consolidated instructions for the MCPs used in the Claude Code lesson. For more detailed installation steps, visit the links to each tool above.
+
+- **GitHub**
+  - [Installation Instructions](https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-claude.md)
+  - `claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer YOUR_TOKEN"`
+  - Create a [personal access token](https://github.com/settings/personal-access-tokens) for "All repositories" and Contents, Issues, and Pull Requests permissions
+- **Linear**
+  - [Installation Instructions](https://linear.app/docs/mcp#claude)
+  - `claude mcp add --transport sse linear-server https://mcp.linear.app/sse`
+- **Neon**
+  - [Installation Instructions](https://neon.com/guides/claude-code-mcp-neon)
+  - You'll need to a Neon account to create a [Personal API key](https://console.neon.tech/app/settings)
+  - When you create an new account, you may be asked to create a project
+- **Playwright**
+  - `claude mcp add playwright npx @playwright/mcp@latest`
+- **Context7**
+  - [Installation Instructions](https://github.com/upstash/context7)
+  - Create a Context7 account and [generate an API key](https://context7.com/dashboard)
+  - `claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"`
+
+After installing these MCPs, you can run `claude mcp list` to verify the installation.
+
 ## Vibe Coding
 
 So, at this point open Claude Code in a new directly and prompt it was something like this

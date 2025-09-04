@@ -19,7 +19,7 @@ We've been working with tools so far, let's go on to resources.
 
 Resources are a bit different than tools. Tools are meant to be given to an LLM and then the LLM can decide to use the tools or not. Think of it like handing a toolbox to your general contractor who is working on your house: they could use one of the tools if they found something that needed it, or if not they just won't use it.
 
-Resources on the other hand are meant for the use to provide to the LLM. This would be more like handing a paper full of information to the contractor and telling them to use it. You decided that you wanted to send it, and you decided what you wanted to put on it.
+Resources on the other hand are meant for the user to provide to the LLM. This would be more like handing a paper full of information to the contractor and telling them to use it. You decided that you wanted to send it, and you decided what you wanted to put on it.
 
 Frankly, so far, these are _way_ less used than tools. But I can see some occasions they potentially could be. Let's say you have a Dropbox folder full of files that are indeed useful to a project, but you don't want the LLM to be able to access them whenever it wants. You could use a resource to judicially add that context yourself when you want it to be there, but not go as far as to let the LLM do it whenever it wants with a tool.
 
@@ -33,7 +33,7 @@ So, first, we're going to lightly introduce you to our final MCP project here: a
 
 We'll get more into the tools coding part of this in the next section, but for now let's make a resource from the project.
 
-Make a new folder, `mcp`, and run `npm init -y` in it. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`. Note that I specify the version because the MCP SDK is evolving quickly and this is the only way I can assure you my code will work for you. You can always ask Copilot or Cursor to upgrade the code for you.
+Make a new folder, `my-mcp`, and run `npm init -y` in it. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`. Note that I specify the version because the MCP SDK is evolving quickly and this is the only way I can assure you my code will work for you. You can always ask Copilot or Cursor to upgrade the code for you.
 
 Add a main.js and put this in there
 

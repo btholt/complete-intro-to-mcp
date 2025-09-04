@@ -30,7 +30,7 @@ I _think_ this course would work with recent versions of [bun][bun] but it's unt
 - Visual Studio Code – I used to work at Microsoft on VS Code so it's no surprise that I'll be using it in this course. We'll also be using a few extensions that I'll call out as we get there.
 - I also use Cursor fairly frequently as well, particularly when I have large amounts of code to generate.
 - Firefox – I want more than Chromium to exist so I support Firefox where I can. Feel free to use any browser; it won't matter in this course.
-- Terminal.app – I used to use iTerm2 and Hyper but in the end I appreciate how fast the default terminal is. I'm getting more tempted to try Ghostty.
+- Terminal.app – I used to use iTerm2 and Hyper but in the end I appreciate how fast the default terminal is. I'm getting more tempted to try [Ghostty][ghostty].
 
 ### What <font/theme/extension> are you using?
 
@@ -62,3 +62,4 @@ You can use whatever AI assistant for this course, and I suggest you do. If you 
 [bun]: https://bun.sh/
 [llms]: https://mcp.holt.courses/llms.txt
 [mcp]: https://modelcontextprotocol.io/llms-full.txt
+[ghostty]: https://ghostty.org/

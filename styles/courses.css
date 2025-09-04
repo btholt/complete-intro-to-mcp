@@ -62,7 +62,7 @@ a {
   margin: inherit;
   padding: inherit;
   font-weight: bold;
-  color: var(--text-main);
+  color: var(--text-main-headers);
 }
 
 .navbar h2 {
@@ -555,49 +555,18 @@ pre code.hljs {
 pre {
   position: relative;
 }
-
-.div-copy {
+.copy-btn {
   position: absolute;
   top: 0;
   right: 0;
+  color: var(--lesson-text-inverse);
+  background: var(--primary);
+  border: 1px solid #999;
+  padding: 0.35em 0.65em;
+  cursor: pointer;
+  border-radius: 0.25em;
 }
 
-.div-copy .tooltip-copy::after {
-  content: "";
-  position: absolute;
-  right: 100%;
-  margin-right: -4px;
-  top: 60%;
-  transform: translateY(-50%);
-  border-style: solid;
-  border-width: 2px 2px 5px 8px;
-  border-color: transparent transparent transparent #444;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.div-copy .tooltip-copy::before {
-  content: "Copied";
-  position: absolute;
-  top: 60%;
-  transform: translateY(-50%);
-  right: 100%;
-  margin-right: 5px;
-  padding: 2px 7px;
-  border-radius: 5px;
-  background: #444;
-  color: #fff;
-  text-align: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.div-copy .tooltip-copy {
-  margin-right: 0.3em;
-  margin-top: 0.3em;
-}
-
-.div-copy.clicked .tooltip-copy::before,
-.div-copy.clicked .tooltip-copy::after {
-  opacity: 1;
+.copy-btn:hover {
+  background: oklch(from var(--primary) calc(l + 0.02) c h);
 }

@@ -14,7 +14,9 @@ const marked = new Marked(
     baseUrl: process.env.BASE_URL ? process.env.BASE_URL + "/" : "/",
     highlight: function (code, lang) {
       const language = hljs.getLanguage(lang) ? lang : "plaintext";
-      return hljs.highlight(code, { language }).value;
+      return `<button class="copy-btn">Copy</button>${
+        hljs.highlight(code, { language }).value
+      }`;
     },
     langPrefix: "hljs language-",
   })
