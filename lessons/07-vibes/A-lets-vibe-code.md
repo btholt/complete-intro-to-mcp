@@ -49,19 +49,19 @@ You can essentially use GitHub as your coding agent's task list which more close
 
 > Note, I worked on this MCP server at Neon (which is now Databricks) so obviously I have a direct interest in showing you how to do this. Just wanted to disclose my bias here. I believe it's the best MCP server for the best Postgres service, but you can be the judge of that! Feel free to plug in any database MCP server you prefer here.
 
-This might be next in terms of impact in my workflow. This allows my agent to create and manage databases for me, see the schema, manage migrations, etc. The Neon MCP server is really cool because you can get Neon Auth through it as well, meaning you don't need another auth service.
+This might be next in terms of impact on my workflow. This allows my agent to create and manage databases for me, see the schema, manage migrations, etc. The Neon MCP server is really cool because you can get Neon Auth through it as well, meaning you don't need another auth service.
 
-A few point of caution with database
+A few points of caution with databases
 
 - Don't give an agent access to a database you can't afford to have dropped. Agents are infamous for doing things "this migration isn't working. I'm going to drop everything and recreate it" and in the process dropping all your data.
-- Be cautious with what other MCP servers you are using. A malicious MCP server you install along side your database MCP server in theory could convince the agent that it needs all the data from your database at which point it could exfiltrate all that data. So be careful with sensitive data and be careful with untrusted MCP servers. That's just good advice in general.
-- Really good idea to give the agent an ORM to work with, with [Drizzle][drizzle] being my favorite. Agents do better with TypeScript than they do with SQL, and are notoriously bad at managing migrations. If you do add an ORM, be sure to be put language in there "DO NOT MODIFY THE MIGRATIONS DIRECTLY, ONLY USE DRIZZLE." Then watch it ignore you and do it anyway 😂
+- Be cautious with what other MCP servers you are using. A malicious MCP server you install alongside your database MCP server in theory could convince the agent that it needs all the data from your database at which point it could exfiltrate all that data. So be careful with sensitive data and be careful with untrusted MCP servers. That's just good advice in general.
+- Really good idea to give the agent an ORM to work with, with [Drizzle][drizzle] being my favorite. Agents do better with TypeScript than they do with SQL, and are notoriously bad at managing migrations. If you do add an ORM, be sure to put language in there "DO NOT MODIFY THE MIGRATIONS DIRECTLY, ONLY USE DRIZZLE." Then watch it ignore you and do it anyway 😂
 
 ## Playwright
 
 [Link to the Playwright MCP setup docs][playwright]. No account needed.
 
-This one is awesome because you can start getting your agent to test stuff in the browser. "Hey Claude, try signing up, creating three todos, and deleting two and making sure it works at each step." Then Claude will pop up a Chrome browser and take a bunch of screen shots along the way, making sure each step works the way it's supposed to. You can even put in your initial prompt to Claude Code, "make liberal use of Playwright to make sure that UI looks and acts correctly." It'll use a good amount of tokens but it will likely deliver a better product to you.
+This one is awesome because you can start getting your agent to test stuff in the browser. "Hey Claude, try signing up, creating three todos, and deleting two and making sure it works at each step." Then Claude will pop up a Chrome browser and take a bunch of screenshots along the way, making sure each step works the way it's supposed to. You can even put in your initial prompt to Claude Code, "make liberal use of Playwright to make sure that UI looks and acts correctly." It'll use a good amount of tokens but it will likely deliver a better product to you.
 
 ## Context7
 
@@ -75,7 +75,7 @@ This is where Context7 can be useful - it is up-to-date docs that are generated 
 
 [Link to the Figma MCP setup docs][figma]. Note you would need a paid Figma account.
 
-Unfortunately we're going to skip out on Figma this time - their free tier has zero access to their MCP server and I don't want to recommend you all spend $16+ just try it out. However it is very cool – you just drop in your Figma design system (or use an open source one like Salesforce Lightning, Google Material, or IBM Carbon) and then let your MCP server take care of using the components. It's a very compelling dev loop, particularly if you work at a company that has a good design system already in Figma.
+Unfortunately we're going to skip out on Figma this time - their free tier has zero access to their MCP server and I don't want to recommend you all spend $16+ just to try it out. However it is very cool – you just drop in your Figma design system (or use an open source one like Salesforce Lightning, Google Material, or IBM Carbon) and then let your MCP server take care of using the components. It's a very compelling dev loop, particularly if you work at a company that has a good design system already in Figma.
 
 ## Vercel
 
@@ -98,8 +98,8 @@ Below you will find the consolidated instructions for the MCPs used in the Claud
   - `claude mcp add --transport sse linear-server https://mcp.linear.app/sse`
 - **Neon**
   - [Installation Instructions](https://neon.com/guides/claude-code-mcp-neon)
-  - You'll need to a Neon account to create a [Personal API key](https://console.neon.tech/app/settings)
-  - When you create an new account, you may be asked to create a project
+  - You'll need a Neon account to create a [Personal API key](https://console.neon.tech/app/settings)
+  - When you create a new account, you may be asked to create a project
 - **Playwright**
   - `claude mcp add playwright npx @playwright/mcp@latest`
 - **Context7**
@@ -148,7 +148,7 @@ Please:
 - DO NOT WRITE OR MODIFY MIGRATIONS YOURSELF. ONLY USE DRIZZLE FOR MIGRATIONS.
 ```
 
-This isn't necessarily the best prompt but it's a pretty good one to get started with. This is a huge chunk of work for Claude to start working on but I've found Claude Code to be up to the task. When I'm working with Cursor, Windsurf, or VS Code w/ Copilot, I generally have a different LLM (usually Claude) generate a task list first and then I have the LLMs follow the task list and mark off the their tasks one-by-one. In any case, this will get you started pretty well. I was able to "one-shot" (meaning it worked first time) the Todoist app with this.
+This isn't necessarily the best prompt but it's a pretty good one to get started with. This is a huge chunk of work for Claude to start working on but I've found Claude Code to be up to the task. When I'm working with Cursor, Windsurf, or VS Code w/ Copilot, I generally have a different LLM (usually Claude) generate a task list first and then I have the LLMs follow the task list and mark off their tasks one-by-one. In any case, this will get you started pretty well. I was able to "one-shot" (meaning it worked the first time) the Todoist app with this.
 
 I'll then usually prompt it to try a few flows with Playwright.
 
