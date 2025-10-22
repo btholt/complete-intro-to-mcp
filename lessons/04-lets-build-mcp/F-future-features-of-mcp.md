@@ -45,7 +45,7 @@ A critical part is that there is still human in the loop here because we don't w
 
 Elicitation is a just a fancy word that your MCP server can ask follow up questions.
 
-Think of an a tool that the MCP server could call to ask you to get your full address so it could fill out a form for you or one where it could ask for your specific GitHub username before it generates a report on GitHub usage. There's all sorts of reasons that a tool could need more information from the user. As of now we just have to hope that the LLM is smart enough to correlate this data for us, but this way we can just make it deterministic that correct information gets gathered as specified by the tool.
+Think of it like a tool that the MCP server could call to ask you to get your full address so it could fill out a form for you or one where it could ask for your specific GitHub username before it generates a report on GitHub usage. There's all sorts of reasons that a tool could need more information from the user. As of now we just have to hope that the LLM is smart enough to correlate this data for us, but this way we can just make it deterministic that correct information gets gathered as specified by the tool.
 
 [clients]: https://modelcontextprotocol.io/clients
 [roots]: https://modelcontextprotocol.io/specification/2025-06-18/client/roots
