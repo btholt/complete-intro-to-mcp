@@ -23,7 +23,7 @@ You can also run models locally on your computer using [Ollama][ollama]. Ollama 
 
 Keep in mind that the larger, "smarter" models typically require beefy GPUs to run with any sort of speed. That said, there are some models that run on even just CPUs and can still do tools calling.
 
-> New models are coming out at break-neck pace. By the time you read this versus when I wrote it, I guarantee there will be several cycle of new models available. You will have to select one based on what's available. The good news is that the new ones are only getting more performant and "smarter".
+> New models are coming out at break-neck pace. By the time you read this versus when I wrote it, I guarantee there will be several cycles of new models available. You will have to select one based on what's available. The good news is that the new ones are only getting more performant and "smarter".
 
 What's important is that you select a model that can handle [tools calling][tools]. As of writing, a few good options that run on less-capable hardware
 
