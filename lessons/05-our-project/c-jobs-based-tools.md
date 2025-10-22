@@ -32,7 +32,7 @@ This is where just mapping your API server to an MCP server runs into trouble.
 
 I'm going to call this "jobs oriented" MCP server as opposed to "API oriented". I made up these terms. But it suits what we're trying to get done today.
 
-Instead of having our infinitely flexible API server and hoping the LLM chooses right, let's say we know we really only want our MCP server to do three thinks
+Instead of having our infinitely flexible API server and hoping the LLM chooses right, let's say we know we really only want our MCP server to do three things
 
 - Create new bugs and mark them as high priority
 - Create new feature request and mark them as low priority
