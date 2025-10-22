@@ -95,17 +95,17 @@ const transport = new StdioServerTransport();
 await server.connect(transport);
 ```
 
-- We'll reuse as this our general MCP server for the issue project so keep this one around
+- We'll reuse this as our general MCP server for the issue project so keep this one around
 - Most of it should look familiar to you already
 - `database-schema` is the name of the resource
-- `schema://database` is the URI. this gives it a unique identifier that can be used by programs and LLMs to refer to specific resources.
+- `schema://database` is the URI. This gives it a unique identifier that can be used by programs and LLMs to refer to specific resources.
 - After that it's mostly just like a tool.
 - Resource templates (which are dynamic) are really similar. The biggest difference is their URIs have something like `schema://database/{table}` or something like that and `{table}` becomes the name of the parameter that can be passed in.
 
 Add this MCP server to Claude Desktop and restart it.
 
-Now, click the ➕ button in the text box. You should see the ability to attach a resource. Attach database schema and then ask the LLM `explain my database schema for my issue to me in plain english` or something like that.
+Now, click the ➕ button in the text box. You should see the ability to attach a resource. Attach the database schema and then ask the LLM `explain my database schema for my issue to me in plain english` or something like that.
 
-That's a resource! This more useful for things like Google Docs where you can easily attach a doc to a request or something of that nature. But they're there and you add them to your MCP servers as you deem necessary!
+That's a resource! This is more useful for things like Google Docs where you can easily attach a doc to a request or something of that nature. But they're there and you add them to your MCP servers as you deem necessary!
 
 [gh]: https://github.com/btholt/mcp-issue-tracker
