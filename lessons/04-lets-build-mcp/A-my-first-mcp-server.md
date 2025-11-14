@@ -55,6 +55,7 @@ server.registerTool(
     return {
         content: [{ type: "text", text: String(a + b) }],
     }
+  }
 );
 
 // Start receiving messages on stdin and sending messages on stdout
