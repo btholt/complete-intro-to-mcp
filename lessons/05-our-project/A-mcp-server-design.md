@@ -43,7 +43,7 @@ npm run dev # run dev script in root directory to start both frontend and backen
 1. In the mcp directory run `npm init -y`
 1. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`
 1. Add `"type": "module"` to the package.json
-1. Finally, create a file called called main.js and put this in there.
+1. Finally, create a file called main.js and put this in there.
 
 ```javascript
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -114,7 +114,7 @@ Ideally, we can connect our app to Claude Desktop via MCP server so that we can 
 So what all do we need to worry about?
 
 - Auth. Claude needs to be able to act on behalf of us.
-- Order of operations. We need an issue to an exist before we can update it.
+- Order of operations. We need an issue to exist before we can update it.
 - Correct tags/people/etc. to assign to issues. We don't want "bug", "bugs", "issues", "prod-issue", and a trillion variations. We want one "bug" tag.
 
 As you can see, there's a lot to juggle here, and it's trusting an LLM a lot to just say "here Claude, use the API directly". Inevitably it's going to mess up a lot. Instead of just wrapping our API directly, we're going to make an MCP server that covers entire "jobs to do" instead of API steps. So we're going to make a tool that "creates a ticket, assigns a user, and gives a correct label to it" instead of just hoping that Claude can get the sequence of API calls right.

@@ -24,7 +24,7 @@ So let's talk about how streamable HTTP is different than SSEs. For one, there's
 
 The topography of handshakes here is a bit more complicated but at the end you get a resumable session, one endpoint to deal with instead of two, and a server that can be stateless as long you architect it well.
 
-But yeah, the key here is that the server gives the session a UUID as a session ID and then the client refers to that using an HTTP header to make sure that the server and client both understand the ongoing context. That's really it. The idea of SSEs still happen inside of this, but it's only part of the architecture instead of all of it.
+But yeah, the key here is that the server gives the session a UUID as a session ID and then the client refers to that using an HTTP header to make sure that the server and client both understand the ongoing context. That's really it. The idea of SSEs still happens inside of this, but it's only part of the architecture instead of all of it.
 
 We're going to implement our MCP main.js again but instead in `streamable.js` and using Express as our Node.js server. Express is chosen because we really just need minimal HTTP helpers and it's the one everyone gets. You can use Fastify, Next.js or whatever you want here.
 
@@ -138,12 +138,12 @@ app.listen(PORT, () => {
 });
 ```
 
-- Every sessions needs a UUID to keep track of which session is ongoing. I'm just using node:crypto for this and JS object to keep track of it. This wouldn't scale - every client would need to hit the same client which makes it hard to scale. You'd probaby use Redis or something to share state amongst stateless servers to scale this better.
+- Every session needs a UUID to keep track of which session is ongoing. I'm just using node:crypto for this and JS object to keep track of it. This wouldn't scale - every client would need to hit the same client which makes it hard to scale. You'd probably use Redis or something to share state amongst stateless servers to scale this better.
 - We need to handle POST for client-to-server messages, GET for server-to-client messages, and DELETE for ending sessions.
 - I turned off the DNS rebinding protection so we can use the MCP inspector but this is something you'd leave on in prod. Bascially you don't want people to be able to jack other people's sessions if they're able to guess the UUID, that would be a huge vulnerability. But locally it doesn't matter.
 - Beyond this, this should just look like a normal ol' web server which it is. We definitely could have (and probably should have) just built this into our backend.
 
-Let's try in it now.
+Let's try it now.
 
 ```
 npx @modelcontextprotocol/inspector
@@ -153,7 +153,7 @@ Then in the UI put in `localhost:3100/mcp` to connect to your server. Make sure 
 
 Now you should see our three jobs-based tools in the inspector.
 
-So what are limitations here?
+So what are the limitations here?
 
 - Obviously we can't just shell out CLI commands - we're constrained to only what we can do on our server and pass back to the user.
 - We have to worry a lot more about security - we don't want to leak other users' data because we did something wrong.

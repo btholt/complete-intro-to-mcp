@@ -23,7 +23,7 @@ I'll show you how for both Claude Desktop and Tome but just Google "how do I use
 
 ## Claude Desktop
 
-Open settings on your Claude Desktop client and go the developers tab. You should see something that will edit your config. It will then probably just point you at the file you need to edit, so open that with VS Code or whatever. Put this in there:
+Open settings on your Claude Desktop client and go to the developers tab. You should see something that will edit your config. It will then probably just point you at the file you need to edit, so open that with VS Code or whatever. Put this in there:
 
 ```json
 {

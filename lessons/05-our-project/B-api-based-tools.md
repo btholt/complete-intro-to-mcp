@@ -172,7 +172,7 @@ Create a new issue in my issue tracker that says "Add Microsoft login to my app"
 
 Now, if you're using Claude Desktop, this will probably work. If you're using Qwen3:0.6B, well, flip a coin. I've had a hard time to get the smallest Qwen 3 model to do anything more than one step.
 
-Once you feel okay with that, go head and change the import in main.js to import from the complete file
+Once you feel okay with that, go ahead and change the import in main.js to import from the complete file
 
 ```javascript
 import apiBasedTools from "./api-based-tools-complete.js"; // add complete at the end

@@ -87,11 +87,11 @@ echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "ad
 
 ## JSON RPC 2.0
 
-You should see the MCP server respond with an answer of 8! This feels just like writing API endpoints, but the advantage here is that we get to give these tools to LLMs and they can call into code we generate for them. Let's talk a bit about JSON RPC 2.0 which is all this is. [JSON RPC][rpc] is ancient in computing terms with the first version of the spec coming out in 2005. The revised 2.0 version came out and in 2010 and that's what this is using – we're not doing anything wild here, just relying on a very proven set of technology.
+You should see the MCP server respond with an answer of 8! This feels just like writing API endpoints, but the advantage here is that we get to give these tools to LLMs and they can call into code we generate for them. Let's talk a bit about JSON RPC 2.0 which is all this is. [JSON RPC][rpc] is ancient in computing terms with the first version of the spec coming out in 2005. The revised 2.0 version came out in 2010 and that's what this is using – we're not doing anything wild here, just relying on a very proven set of technology.
 
 So what _is_ JSON RPC? You can think of it as an alternative to REST. With REST you call endpoints that are based around a thing - e.g. you call a PATCH to /users/123 to update user 123. Your URLs are based things and the semantics of manipulating those things. JSON RPC (and XML RPC before it) is based around calling remote functions - that's it. It's literally a remote procedure call. So in this we're just giving an MCP server direction on what procedures (or functions) we want them to do. That's it!
 
-Let's see it initializes itself!
+Let's see it initialize itself!
 
 ```bash
 echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}}' | node mcp.js | jq
