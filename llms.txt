@@ -1,0 +1,1598 @@
+# Intro
+
+Hello! And welcome to the Complete Intro to MCP as taught for Frontend Masters! This is for anyone looking to level up their skills with AI. No AI experience is necessary! I will show you all the tools you need to use and this will be super helpful to AI aficionados and newbies alike.
+
+MCP is a protocol for augmenting the abilities of various AI tools to _do_ things. You'd write an MCP server to interact with an API or to create a calendar invite or something like that. It mixes the determinism of code with the flexibility of AI/agents/LLMs. You could try to get the AI to generate code and run it on the fly (and sometimes this is a good idea) but these are useful capabilities you want your AI to be able to repeatedly do reliably. It gives your agent tools to act.
+
+## Who is this course for?
+
+You! This course is for anyone looking to get more experience in AI or MCP or "vibe coding". You'll find it all here.
+
+This course is written in JavaScript and Node.js, so experience there is helpful, but honestly if you're really handy with LLMs and can reliably generate code that works, you'll be able to survive here just fine. The more coding experience you have the better, but you can also start here! This course is for anyone looking to level up their skills.
+
+## Who am I?
+
+![Brian teaching](/images/social-share-cover.jpg)
+
+My name is Brian Holt and I've been shipping AI tools for the last three or so years, across Snowflake, Neon, and Databricks.
+
+I currently work as a product manager at [Databricks][databricks] working on AI infrastructure. I came into Databricks via the [Neon][neon] acquisition. I loved working on AI, dev tools, and dev experiences so much that I ended up working in AI strategy and product! Previous to Neon, I've worked at Snowflake, Microsoft, LinkedIn, Netflix, Reddit, and some other startups. I've done everything from VP of product to dev rel to staff engineering tech lead.
+
+When I'm not working or teaching, you'll find me hanging out with my wife, son, and my newborn daughter! I've lived the past six years in Seattle but I've just moved to Sacramento to get a bit more sun and to live close to amazing snowboarding in Tahoe! 🏂 I also enjoy hazy IPAs, Islay Scotches, road cycling, and playing Elden Ring Nightreign poorly.
+
+Please catch up with me on social media! Be aware that I'm awful at responding to DMs!!
+
+- [𝕏][x]
+- [Bluesky][bs]
+- [LinkedIn][li]
+- [GitHub][gh]
+
+## Where to File Issues
+
+I write these courses and take care to not make mistakes. However when teaching over ten hours of material, mistakes are inevitable, both here in the grammar and in the course with the material. However I (and the wonderful team at Frontend Masters) are constantly correcting the mistakes so that those of you that come later get the best product possible. If you find a mistake we'd love to fix it. The best way to do this is to [open a pull request or file an issue on the GitHub repo][site]. While I'm always happy to chat and give advice on social media, I can't be tech support for everyone. And if you file it on GitHub, those who come later can Google the same answer you got.
+
+## How the repo works
+
+There are two repos for this class: [the website you're currently on][site] and [the example projects][projects]. To get set up, clone or [download][zip] the projects repo:
+
+```bash
+git clone https://github.com/btholt/mcp-issue-tracker.git
+```
+
+I've written a whole project for you to work with, a GitHub-style issue tracker, so we'll be working with that for our project partway through the course.
+
+> And one last request! [Please star this repo][site]. It helps the course be more discoverable and with my fragile ego.
+
+[x]: https://twitter.com/holtbt
+[bs]: https://bsky.app/profile/brianholt.me
+[li]: https://www.linkedin.com/in/btholt/
+[gh]: https://github.com/btholt
+[site]: https://github.com/btholt/complete-intro-to-mcp
+[projects]: https://github.com/btholt/mcp-issue-tracker
+[issues]: https://github.com/btholt/mcp-issue-tracker/issues
+[neon]: https://neon.tech/
+[databricks]: https://www.databricks.com/product/lakebase
+[zip]: https://github.com/btholt/mcp-issue-tracker/archive/refs/heads/main.zip
+
+=================
+
+# My Setup
+
+## Node.js
+
+You'll need to have a Node.js version installed, and preferably something after v22.18.
+
+I use [fnm][fnm] to manage my Node.js versions (similar to nvm).
+
+I _think_ this course would work with recent versions of [bun][bun] but it's untested. Beware if you decide go down this path.
+
+## Tools FAQ
+
+### What tools are your using?
+
+- Visual Studio Code – I used to work at Microsoft on VS Code so it's no surprise that I'll be using it in this course. We'll also be using a few extensions that I'll call out as we get there.
+- I also use Cursor fairly frequently as well, particularly when I have large amounts of code to generate.
+- Firefox – I want more than Chromium to exist so I support Firefox where I can. Feel free to use any browser; it won't matter in this course.
+- Terminal.app – I used to use iTerm2 and Hyper but in the end I appreciate how fast the default terminal is. I'm getting more tempted to try [Ghostty][ghostty].
+
+### What <font/theme/extension> are you using?
+
+- Visual Studio Code
+  - Dark+ Theme – It comes installed by default but it's not the default theme anymore. I'm so used to it that I can't switch.
+  - [MonoLisa][monolisa] font – I like fonts and I look at it all day so I was okay paying for it. They gave me a code to give you all! `BHOLT10` gives you 10% off (I get no kickback from this, I just like MonoLisa.)
+  - I have [ligatures][ligatures] enabled which is why you might see strange glyphs. If you want ligatures but don't want to pay, the linked ligature article has a few. I like Cascadia Code from Microsoft.
+  - [vscode-icons][vscode-icons] – Lots of neat icons for VS Code and it's free.
+- Terminal
+  - zsh – It comes with macOS now and I'm _way_ too lazy to switch back to bash.
+  - [Dracula theme][dracula] – I like the pastels. I would use it in VS Code too if Dark+ wasn't ingrained in my blood.
+  - [Starship Prompt][starship] – Very cool prompt that's just pretty. Also shows you what sort of project you're in which is occasionally useful
+  - [Caskaydia Cove Nerd Font][nerd] – This works with Starship prompt to give you the JS logos and all those extra glyphs. It's based on Cascadia Code.
+
+## AI Assistant
+
+You can use whatever AI assistant for this course, and I suggest you do. If you don't learn something from the course, it's useful to ask an LLM like ChatGPT or Claude to see if they can help you understand. Two pro tips for this class in particular.
+
+- You can find the full text of all these lessons at [https://mcp.holt.courses/llms.txt][llms]. That way you can load everything I've written into the context of the LLM and ask them about the content of the course with the context of everything.
+- Likewise, modelcontextprotocol.io has its entire content of its docs at [modelcontextprotocol.io/llms-full.txt][mcp]. Because MCP changes at such a quick pace, it's useful to load some or all of this context into your LLM. Because this one is so big (some 12K lines last I checked) you may not want to load _all_ of this into context, maybe just the sections you need.
+
+[ligatures]: https://worldofzero.com/posts/enable-font-ligatures-vscode/
+[monolisa]: https://www.monolisa.dev/
+[vscode-icons]: https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons
+[dracula]: https://draculatheme.com/
+[starship]: https://starship.rs/
+[nerd]: https://www.nerdfonts.com/font-downloads
+[fnm]: https://github.com/Schniz/fnm
+[bun]: https://bun.sh/
+[llms]: https://mcp.holt.courses/llms.txt
+[mcp]: https://modelcontextprotocol.io/llms-full.txt
+[ghostty]: https://ghostty.org/
+
+=================
+
+# Thoughts on AI and Software Dev
+
+I've been doing web development for over fifteen years now – I started in PHP, did frontend, Python, Java, Rust, C++, and a handful of other things. I've written, shipped, maintained, and debugged a lot of code. And I love it. I love it so much I do it in my spare time and I teach it to others.
+
+So what do I think about AI and software dev? I get asked this a lot, and since this is an AI focused course, this feels like a good time for me to share some thoughts on the future of the industry.
+
+First of all, I don't think the trade is going away. I think the job of title of software developer is not going away any time soon. I think if you currently work in software dev, that there is a fruitful career still ahead of you.
+
+I do think AI is going to change the industry a lot in the coming years, and already has. I think more and more code is going to be provided / dealt with by coding agents, and I think some of the things of the past that we worried about (like writing integration tests) just are going to get swallowed up and mostly solved by AI tools. I think the more that you as a software dev embrace this as opposed to fight it, it will bode well for you and for your career.
+
+I believe those who learn to wield AI tools the best will rise to the top of the industry. These sorts of people will be able to meld "vibe coding" in with hand coding, knowing when to rely on an agent to generate code that an agent will do well with, and when to get in there and write it themselves when exploring areas that agents won't do as well in, but still likely with AI-assisted tools. These sorts of people will still take responsibility for **all** code they ship, written by AI or not. They will still be reliable, thoughtful, reviewed, and tested.
+
+We've witnessed a cambrian explosion of progress in the AI tool front and it's tempting to assume continued exponential growth of progress (because that's how it's been going so far) but I invite you to keep pace with the innovation and to try to master each step. Who knows what tomorrow holds, but it can be paralyzing to focus too much on the future and not enough on what we can accomplish now.
+
+It's exciting times, and I'm excited about AI. I am neither a maximalist nor a minimist when it comes to AI – I am trying to root myself in what can I do now and how can I use tools to accelerate myself and my team.
+
+=================
+
+# Agents
+
+I want to dwell a second on the term "agent" / "agentic" as it's a term you probably hear a lot and may wonder what the precise definition is. We'll be using them here so it bears a second to define the term.
+
+I specifically was confused with what an agent was in relation to just LLMs in general when I was first introduced to the terms. When is it an agent versus just being an LLM?
+
+Well, let's say a few things. For one, agent is a buzzword and getting an exact definition for it is tough because it doesn't have a standardized definition and marketing has gone absolutely hog-wild for it. So it becomes difficult to define because you need to disambiguate it from the hype.
+
+I would say an agent is an LLM or a framework of LLMs designed around accomplishing a job that will likely use multiple iterations to accomplish them. It's a very broad definition and not 100% accurate (you could call Claude Desktop an agent with this defintion and that's probably not true.) But the gist is this: you say "hey agent, please do X for me" and it will reason about it, set up some planned steps, and then try to go do that thing for you as it iterates. In a coding agent like [Replit][replit], [v0][v0], [Create.xyz][create], [Same.new][same], [Databutton][databutton], [app.build][app.build] or one of the numerous others, you will ask it to build an app for you, it will make a plan of what it needs to do to build that, and then start generating code to try to make it work. It will then modularly test functionality it is generating and iterate until it's done. This cycle of plan, generate, evaluate, repeat using a framework of LLMs is what I'd deem to make it "agentic".
+
+An LLM, a large language model, are much more focused on text generation given an input, and can make up part of an agentic flow. You can have LLMs without agents - it's hard to have an agent without LLMs.
+
+We'll be using coding IDE agents today, but if you haven't tried one of those online coding agents I mentioned above - do!! They're a blast to work with and you'll learn a ton.
+
+[replit]: https://repl.it
+[v0]: https://v0.dev
+[create]: https://create.xyz
+[same]: https://same.new
+[databutton]: https://databutton.com
+[app.build]: https://app.build
+
+=================
+
+# Claude Desktop
+
+The first thing we need is an MCP client. There are [many, many, many MCP clients][mcp-clients] but I'm going to focus us on two: [Claude Desktop][claude] or [Tome][tome].
+
+> If you're unsure which to use, go with Claude. [Click here][claude] to go download Claude Desktop
+
+Claude is the name of the family of models from Anthropic. Claude Desktop is a desktop app that allows you to ask the various Claude models questions via a desktop app instead of via their web client. Generally speaking the web client is sufficient but we want to use local MCP servers and the web client can't support that easily whereas it's trivial with the desktop client.
+
+> As of writing, you _do not_ need the premium version of Claude for this course to work. The free tier is pretty generous. However I really like Claude and I do pay for it.
+
+Once you've downloaded Claude Desktop and logged into your either free or pro account, you should see a textbox where you can start a new chat. Underneath that is something that likely says "Connect your tools to Claude". This is where we can add new MCP servers.
+
+[claude]: https://claude.ai/download
+[mcp-clients]: https://modelcontextprotocol.io/clients
+[tome]: https://gettome.app
+
+=================
+
+# Tome and Ollama
+
+I wanted to give you a second option if for whatever reason you don't want to use Claude Desktop. Again, there are a myriad of choices but I was particularly impressed with [Tome][tome]. Tome is an open source app to chat with LLMs. It supports OpenAI, Google Gemini, and Ollama - so if you want to use either OpenAI or Gemini, here's the place to do it.
+
+> Note that Tome, only (as of writing), supports tools, not prompts or resources. But honestly tools are the most important and fun anyway.
+
+You can also run models locally on your computer using [Ollama][ollama]. Ollama is a very cool piece of software that makes it's trivial to run models on your computer. It will spin up a local web server for you to make queries against. We can have our Tome then query that locally-running LLM.
+
+Keep in mind that the larger, "smarter" models typically require beefy GPUs to run with any sort of speed. That said, there are some models that run on even just CPUs and can still do tools calling.
+
+> New models are coming out at break-neck pace. By the time you read this versus when I wrote it, I guarantee there will be several cycles of new models available. You will have to select one based on what's available. The good news is that the new ones are only getting more performant and "smarter".
+
+What's important is that you select a model that can handle [tools calling][tools]. As of writing, a few good options that run on less-capable hardware
+
+- [DeepSeek R1 1.5B][r1]
+- [Qwen3 0.6B][qwen]
+- [Phi4-Mini 3.8B][phi]
+- [Llama 3.2 1B][llama]
+
+The B means billions, and it's how many parameters that model has which (_very roughly_) can translate to how smart it is, sorta like how megahertz _very roughly_ translates to how capable a CPU is – they're loosely related but you shouldn't say that the Llama model is smarter than the DeepSeek one just because it has more parameters.
+
+You may need to try a few models before you find one that works well with what you're doing. Just make sure you're using tools-calling models as not all of them do it. I at home run Ollama on my gaming PC so I can take advantage of the beefy GPU I have in there - you can definitely do that too since Ollama is just a web server. In that case you can run a larger model as it will fit in VRAM.
+
+Again, keep in mind that running inference on a model is very computationally expensive so you shouldn't expose it to the world and you should be aware that if you run a lot of inference you can rack up a power bill!
+
+> With Tome it doesn't show you streaming text while it's thinking so if you picked a big model that's a bit slower to run, it can look like it's not doing anything.
+
+I asked the creators of Tome if they wanted to share anything with you all and they said if you're passionate about LLMs, agents, and/or MCP servers to join them on [Discord][discord]!
+
+> I'll put one shout out in here for [OpenRouter.ai][openrouter]. If you want to try a lot of models and make it easy to switch between them, OpenRouter makes that very simple to do. Lots of other services exist (including on Databricks!) but OpenRouter works very well in this use case.
+
+[tome]: https://gettome.app
+[discord]: https://discord.com/invite/9CH6us29YA
+[ollama]: https://ollama.com/
+[tools]: https://ollama.com/search?c=tools
+[qwen]: https://ollama.com/library/qwen3
+[r1]: https://ollama.com/library/deepseek-r1
+[phi]: https://ollama.com/library/phi4-mini
+[llama]: https://ollama.com/library/llama3.2
+[openrouter]: https://openrouter.ai/
+
+=================
+
+# Other Clients
+
+There are plenty of other MCP clients, notably coding clients like Cursor, Windsurf, VS Code, or Claude Code, and this is probably where MCP shines most. We'll eventually try it out in cursor, but for now let's stick to these more chat oriented clients as it'll ease our intro into the subject.
+
+=================
+
+# My First MCP Server
+
+Without further ado, let's make our first MCP server!
+
+> We are going to make a local MCP server first, the "old way", or the STDIO way, however you want to label it. We'll do the SSE or the remote way later in the course.
+
+At its most simple, an MCP server is just that, a server. It runs a locally running server that allows you to feed it information via [standard IO][stdio] an LLM can call. In truth, MCP servers are at their core super simple, and you'll probably think it's silly that we wrap them in such a mystique (it is silly.)
+
+It's a bit of a specialized server as it expects certain input to return certain shapes of responses, but beyond that it's a bog-standard server, so much so that you can literally write your MCP servers in plain Node.js/Bun/Python/whatever.
+
+We'll be using `@modelcontextprotocol/sdk` which is a little toolkit that helps you get started. It's not totally necessary as the MCP protocol is fairly simple but it just helps us make sure that everything gets tracked the right way.
+
+So create a new directory, do `npm init -y` and run `npm install @modelcontextprotocol/sdk`. In a new file called mcp.js, add
+
+```javascript
+import {
+  McpServer,
+  ResourceTemplate,
+} from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+
+// Create an MCP server
+const server = new McpServer({
+  name: "add-server",
+  version: "1.0.0",
+});
+
+// Add an addition tool
+server.registerTool(
+  "add",
+  {
+    title: "Addition Tool",
+    description: "Add two numbers",
+    inputSchema: { a: z.number(), b: z.number() },
+  },
+  async ({ a, b }) => {
+    return {
+        content: [{ type: "text", text: String(a + b) }],
+    }
+  }
+);
+
+// Start receiving messages on stdin and sending messages on stdout
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+- This is as simple an MCP server as you're going to find.
+- It registers itself as an MCP server with the `new McpServer` instantiation
+- We then add one tool to it, one that adds two numbers together. Obviously an LLM can do this but we're just going for simple here.
+- We then specify the transport we're using is stdio, which is using bash's stdin to send info to the MCP server. SSE would be the other kind of transport, and we'll get to that.
+- We're also using [Zod][zod] here. Zod is a validation library that's built TypeScript first. It's really useful as you can define what schemas are expected and it serves several purposes.
+  - It tells the LLM in strong terms "whatever you give here, it must pass this zod validation. LLMs do well with strong guidelines
+  - It's documentation for future you of what this tool call needs.
+  - It also allows you to add annotations that tell the LLM "this variable named X expects Y type and in plain English, this variable is Z."
+
+So try starting your server and you'll see it'll just do nothing. That's because you need to use stdin to send it commands! Let's try one.
+
+```bash
+# List available tools:
+echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/list", "params": {"name": "add", "arguments": {}}}' | node mcp.js | jq
+
+# Call a tool:
+echo '{"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": "add", "arguments": {"a": 5, "b": 3}}}' | node mcp.js
+```
+
+- [jq][jq] is super helpful for processing JSON on the command line. It can do a lot more than pretty print but it's 99.99% of what I use it for
+- You don't really need to know how to invoke your MCP server via the CLI - your LLM will do it for you. But it helpful for testing! I usually have an LLM write the CLI command for me anyway ♻️
+- It's enough to know that you're calling the tools via stdin with a standard format. It passes that it wants to list available tools (which is how LLMs know what is available to use) and then it uses `tools/call` to actually invoke the tool. There's a lot more to MCP but frankly it's low level and really not needed to be known by you. But this is the protocol.
+
+## JSON RPC 2.0
+
+You should see the MCP server respond with an answer of 8! This feels just like writing API endpoints, but the advantage here is that we get to give these tools to LLMs and they can call into code we generate for them. Let's talk a bit about JSON RPC 2.0 which is all this is. [JSON RPC][rpc] is ancient in computing terms with the first version of the spec coming out in 2005. The revised 2.0 version came out in 2010 and that's what this is using – we're not doing anything wild here, just relying on a very proven set of technology.
+
+So what _is_ JSON RPC? You can think of it as an alternative to REST. With REST you call endpoints that are based around a thing - e.g. you call a PATCH to /users/123 to update user 123. Your URLs are based things and the semantics of manipulating those things. JSON RPC (and XML RPC before it) is based around calling remote functions - that's it. It's literally a remote procedure call. So in this we're just giving an MCP server direction on what procedures (or functions) we want them to do. That's it!
+
+Let's see it initialize itself!
+
+```bash
+echo '{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2024-11-05", "capabilities": {}, "clientInfo": {"name": "test-client", "version": "1.0.0"}}}' | node mcp.js | jq
+```
+
+[stdio]: https://btholt.github.io/complete-intro-to-linux-and-the-cli/streams-and-pipes
+[rpc]: https://en.wikipedia.org/wiki/JSON-RPC
+[jq]: https://jqlang.org/
+[zod]: https://zod.dev/
+
+=================
+
+# Using Our First MCP Server
+
+Now we have a valid MCP server, let's use it!
+
+I'll show you how for both Claude Desktop and Tome but just Google "how do I use MCP server with <my MCP client>" and it should point you to what you need.
+
+> This is also subject to change. In particular I imagine Claude Desktop has to make this way easier to do. But this works as of writing.
+
+## Claude Desktop
+
+Open settings on your Claude Desktop client and go to the developers tab. You should see something that will edit your config. It will then probably just point you at the file you need to edit, so open that with VS Code or whatever. Put this in there:
+
+```json
+{
+  "mcpServers": {
+    "demo-server": {
+      "command": "[the fully path to your node binary]",
+      "args": ["[the full path to your mcp.js file]"],
+      "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+      }
+    }
+  }
+}
+```
+
+- Type `which node` to get your node path. Mine is long and weird because I use [fnm][fnm] to manage my Node.js installs. It might be less weird for you.
+- In the directory where your mcp.js file is, type `pwd`. Copy that path and then put `/mcp.js` on the end for the args.
+- `--no-deprecation` just makes for less noisy logs, particularly if you have dependencies. I think it can confuse Claude too. I see it in every example so I just put it in.
+
+Okay, now restart Claude Desktop (you have to restart it every time you edit the config) and you should now be able to use our MCP server.
+
+## Tome
+
+Tome is much simpler. You just click the MCP logo on the left side and add your command to run your server. You shouldn't need to full Node.js path but you do need the full path to mcp.js. So it'll look like
+
+```bash
+node /my/path/to/my/server/mcp.js
+```
+
+Or something like that. I don't believe you need to restart Tome, it should just start working.
+
+Let's try it. In either one, run this prompt
+
+```
+Using the `add-server` MCP server, use the add tool to add 15 and 21 together.
+```
+
+Why so specific? With such a simple use case, many models will just do it themselves and skip calling tools. This ensures that the model will know you want it to use the MCP server. I just ran `add 21 and 15` in both Tome with qwen3:8b and Claude Sonnet 4 and both _did_ choose to use the tool, but that's not always true. In any case, you should see some UI that indicates that a tool was used. If you don't see any UI indicating that then the model elected to not use the tool.
+
+And there you go! That's how you make and consume an MCP server.
+
+[fnm]: https://github.com/Schniz/fnm
+
+=================
+
+# Making a Weather MCP Server
+
+So let's make an actually useful MCP server. An MCP server is a way to augment the abilities of the LLM you're working with. In our case, we're working with chat bots, so let's augment their ability to retrieve reliable data.
+
+[Open-Meteo][om] is a wonderful weather service that is free and doesn't even require you to sign up! They have a generous free tier that is absolutely perfect for toying around with. They graciously agreed to let me use them as my sample API for this course.
+
+> In the event that open-meteo won't work for you or you just want to try something else, [the public api repo on GitHub][public] is a wonderful place to find another API to work with.
+
+So we're going to make a tool that's going to take in a latitude and longitude (which our LLMs are perfectly capable of coming up with) and returns some weather data. Let's do it!
+
+I'm just going to do this in the same project and make a new file called weather.js. Normally I'd make a new project but this is just a one-off.
+
+```javascript
+import {
+  McpServer,
+  ResourceTemplate,
+} from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { fetchWeatherApi } from "openmeteo";
+import { z } from "zod";
+
+// Create an MCP server
+const server = new McpServer({
+  name: "weather-server",
+  version: "1.0.0",
+});
+
+// Add a weather tool
+server.registerTool(
+  "get_weather",
+  {
+    title: "Get Current Weather",
+    description: "Get current weather data for a given latitude and longitude",
+    inputSchema: {
+      latitude: z.number().describe("Latitude coordinate"),
+      longitude: z.number().describe("Longitude coordinate"),
+    },
+  },
+  async ({ latitude, longitude }) => {
+    try {
+      const params = {
+        latitude,
+        longitude,
+        current: [
+          "temperature_2m",
+          "relative_humidity_2m",
+          "apparent_temperature",
+          "is_day",
+          "precipitation",
+          "rain",
+          "wind_speed_10m",
+        ],
+        wind_speed_unit: "mph",
+        temperature_unit: "fahrenheit",
+        precipitation_unit: "inch",
+      };
+
+      const url = "https://api.open-meteo.com/v1/forecast";
+      const responses = await fetchWeatherApi(url, params);
+
+      // Process first location
+      const response = responses[0];
+
+      const current = response.current();
+
+      // Note: The order of weather variables in the URL query and the indices below need to match
+      const weatherData = {
+        temperature2m: current.variables(0).value(),
+        relativeHumidity2m: current.variables(1).value(),
+        apparentTemperature: current.variables(2).value(),
+        isDay: current.variables(3).value() === 1,
+        precipitation: current.variables(4).value(),
+        rain: current.variables(5).value(),
+        windSpeed10m: current.variables(6).value(),
+      };
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(weatherData, null, 2),
+          },
+        ],
+        structuredOutput: {
+          temperature: {
+            current: current.variables(0).value(),
+            feelsLike: current.variables(2).value(),
+            unit: "fahrenheit",
+          },
+          humidity: {
+            value: current.variables(1).value(),
+            unit: "percent",
+          },
+          wind: {
+            speed: current.variables(6).value(),
+            unit: "mph",
+          },
+          precipitation: {
+            total: current.variables(4).value(),
+            rain: current.variables(5).value(),
+            unit: "inches",
+          },
+          conditions: {
+            isDay: current.variables(3).value() === 1,
+            dayNight: current.variables(3).value() === 1 ? "day" : "night",
+          },
+        },
+      };
+    } catch (error) {
+      return {
+        content: [
+          {
+            type: "text",
+            text: `Error fetching weather data: ${error.message}`,
+          },
+        ],
+      };
+    }
+  }
+);
+
+// Start receiving messages on stdin and sending messages on stdout
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+Generally this should all make sense to you – we haven't really introduced any net new concepts. But now this will actually make API requests for you and provide up-to-date weather information.
+
+Go edit your MCP server config with your new MCP server (you can leave the old one, or delete it, doesn't matter.)
+
+```json
+"weather-server": {
+    "command": "/path/to/node",
+    "args": ["/path/to/weather.js"],
+    "env": {
+        "NODE_OPTIONS": "--no-deprecation"
+    }
+}
+```
+
+Restart Claude Desktop if you need to. And then ask something like "Do I need a rain jacket in Seattle right now?" or "What are the weather conditions in Minneapolis, MN right now?" and see what it says!
+
+[om]: https://open-meteo.com/
+[public]: https://github.com/public-apis/public-apis
+
+=================
+
+# Resources
+
+We've been working with tools so far, let's go on to resources.
+
+Resources are a bit different than tools. Tools are meant to be given to an LLM and then the LLM can decide to use the tools or not. Think of it like handing a toolbox to your general contractor who is working on your house: they could use one of the tools if they found something that needed it, or if not they just won't use it.
+
+Resources on the other hand are meant for the user to provide to the LLM. This would be more like handing a paper full of information to the contractor and telling them to use it. You decided that you wanted to send it, and you decided what you wanted to put on it.
+
+Frankly, so far, these are _way_ less used than tools. But I can see some occasions they potentially could be. Let's say you have a Dropbox folder full of files that are indeed useful to a project, but you don't want the LLM to be able to access them whenever it wants. You could use a resource to judicially add that context yourself when you want it to be there, but not go as far as to let the LLM do it whenever it wants with a tool.
+
+One thing to note: resources (or direct resources, as the docs refer to them as) are _not_ dynamic. You can't pass any parameters into it. It's just a static method that gets called and gives back what it gives back. If we were doing a weather resource, you'd have to hardcode in where-ever you were providing weather for.
+
+There is such a thing as "resource templates" where you can provide parameters to the resource, but it's still unsupported in Claude Desktop so we're going to skip it for now.
+
+So, first, we're going to lightly introduce you to our final MCP project here: an issue tracker that I vibe coded 👨‍💻. Think of it like GitHub Issues but with far fewer features.
+
+> [Go clone this repo.][gh]
+
+We'll get more into the tools coding part of this in the next section, but for now let's make a resource from the project.
+
+Make a new folder, `my-mcp`, and run `npm init -y` in it. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`. Note that I specify the version because the MCP SDK is evolving quickly and this is the only way I can assure you my code will work for you. You can always ask Copilot or Cursor to upgrade the code for you.
+
+Add a main.js and put this in there
+
+```javascript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import sqlite3 from "sqlite3";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Create an MCP server
+const server = new McpServer({
+  name: "issues-server",
+  version: "1.0.0",
+});
+
+// Register the database schema resource
+server.registerResource(
+  "database-schema",
+  "schema://database",
+  {
+    title: "Database Schema",
+    description: "SQLite schema for the issues database",
+    mimeType: "text/plain",
+  },
+  async (uri) => {
+    const dbPath = path.join(__dirname, "..", "backend", "database.sqlite");
+
+    const schema = await new Promise((resolve, reject) => {
+      const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY);
+
+      db.all(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND sql IS NOT NULL ORDER BY name",
+        (err, rows) => {
+          db.close();
+          if (err) reject(err);
+          else resolve(rows.map((row) => row.sql + ";").join("\n"));
+        }
+      );
+    });
+
+    return {
+      contents: [
+        {
+          uri: uri.href,
+          mimeType: "text/plain",
+          text: schema,
+        },
+      ],
+    };
+  }
+);
+
+// Start receiving messages on stdin and sending messages on stdout
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+- We'll reuse this as our general MCP server for the issue project so keep this one around
+- Most of it should look familiar to you already
+- `database-schema` is the name of the resource
+- `schema://database` is the URI. This gives it a unique identifier that can be used by programs and LLMs to refer to specific resources.
+- After that it's mostly just like a tool.
+- Resource templates (which are dynamic) are really similar. The biggest difference is their URIs have something like `schema://database/{table}` or something like that and `{table}` becomes the name of the parameter that can be passed in.
+
+Add this MCP server to Claude Desktop and restart it.
+
+Now, click the ➕ button in the text box. You should see the ability to attach a resource. Attach the database schema and then ask the LLM `explain my database schema for my issue to me in plain english` or something like that.
+
+That's a resource! This is more useful for things like Google Docs where you can easily attach a doc to a request or something of that nature. But they're there and you add them to your MCP servers as you deem necessary!
+
+[gh]: https://github.com/btholt/mcp-issue-tracker
+
+=================
+
+# Prompts
+
+This one ends up working fairly similarly to a resource but the idea is that it's a template for a prompt. Imagine you have a common prompt you use a lot and it just needs a little tweak here and there to fit what you're doing. Or you have a team of people that need to share templates between them and you want one place to update it and automatically push it to your colleagues. Or maybe even a company could ship some canned prompts that work well with their tools (e.g. here's a good prompt for working with Neon.com). That's what prompts are for.
+
+> Resources are meant more to be context given to an LLM while prompts are meant more to be commands for the LLM to do. The line is a bit blurry here so don't worry too much about it – I think there are still some iterations left before we land on the exact what MCP servers will work.
+
+Let's build one! Let's say you're having Claude help you write some code and you want it to follow a particular style. You could attach the style guide as a resource (which is a perfectly fine way to do it) or we could do it with prompt. Let's try the prompt.
+
+> We're going back to the old directory we working in, not the issues project. Don't worry, we'll be back to work our issues project shortly.
+
+Feel free to use any style guide you want, but here are a few:
+
+- [Idiomatic.js][idiomatic]
+- [Airbnb][airbnb]
+- [Standard][standard]
+
+Just copy the entire file into a style-guide.md file in your directory of MCP servers. I think idiomatic is the shortest one if you're looking to save on tokens. Airbnb is certainly the longest, being 4x longer than Standard.
+
+Then let's make a little MCP server for it. Make style-checker.js
+
+```javascript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "zod";
+import { readFileSync } from "fs";
+
+const airbnbMarkdownPath = "/Users/brianholt/personal/hello-mcp/airbnb.md";
+const airbnbMarkdown = readFileSync(airbnbMarkdownPath, "utf-8");
+
+const server = new McpServer({
+  name: "code-review-server",
+  version: "1.0.0",
+});
+
+server.registerPrompt(
+  "review-code",
+  {
+    title: "Code Review",
+    description: "Review code for best practices and potential issues",
+    argsSchema: { code: z.string() },
+  },
+  ({ code }) => ({
+    messages: [
+      {
+        role: "user",
+        content: {
+          type: "text",
+          text: `Please review this code to see if it follows our best practices. Use this Airbnb style guide as a reference:\n\n=============\n\n${airbnbMarkdown}\n\n=============\n\n${code}`,
+        },
+      },
+    ],
+  })
+);
+
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+Add your MCP server to Claude and/or Tome, and restart Claude if necessary. Click the ➕, click code-review-server, and paste some code in the box that you want Claude to review. LLM code review! Now, we could just have ESLint do this (and 100% you should do that first) but I could see this being useful giving to an LLM up front that you want it to follow certain patterns and rules or if you want LLM to give you advice on how best to fit code to a style guide. The plain English feedback is super nice.
+
+That's it for prompts!
+
+[idiomatic]: https://github.com/rwaldron/idiomatic.js/blob/master/readme.md
+[airbnb]: https://github.com/airbnb/javascript/blob/master/README.md
+[standard]: https://github.com/standard/standard/blob/master/RULES.md
+
+=================
+
+# Future Features of MCP
+
+Like we've said before, MCP is really new and evolving quickly. Lots of new features and ideas are being tested out and possibly being adopted while others may fade out as time goes on. We are still learning new ways to harness the power of LLMs, both from a capability perspective as well as an efficiency one.
+
+I wanted to call out three features that are forthcoming from the MCP **client** perspective. Eventually these will probably make their way to Claude Desktop and Tome, but as of today they do not work.
+
+> [Here's a list of MCP clients][clients] and their various levels of support. Only a few support the newer features.
+
+## Roots
+
+This is just a way to expose a subset of your file system to your LLM. For Claude Desktop, it'd be like saying "hey Claude, you have access to any file in this directory" and it would then be able to operate on those files. This somewhat already works in things like Cursor or VS Code because obviously they get to work on the files that are open in the workspace they're in – this is just a way of formalizing that process and giving it a name.
+
+[See more about roots here][roots].
+
+## Sampling
+
+I really don't like the name sampling because what I think sampling is, isn't actually what it is.
+
+Put simply: it's when your MCP server can give the LLM a prompt directly. An example would be if you had an MCP server that helped with refactoring and the MCP server could hand the LLM a piece of code with a prompt on how to refactor it and it would get an answer that way. Very useful stuff.
+
+A critical part is that there is still human in the loop here because we don't want either sneaky MCP servers taking advantage of unwitting users nor do we want an MCP server to go off the rails and accidentally burn a lot of tokens doing worthless work. So what will happen is that when the MCP server goes to prompt your LLM, it will ask you, the human, to approve that prompt, and then once the LLM is done, it will ask you to approve what it will send back to the MCP server. It will also let you edit it directly too!
+
+![Sampling diagram](/images/sampling.jpeg)
+
+<small>Source: [modelcontextprotocol.io docs][sampling]</small>
+
+## Elicitation
+
+Elicitation is a just a fancy word that your MCP server can ask follow up questions.
+
+Think of it like a tool that the MCP server could call to ask you to get your full address so it could fill out a form for you or one where it could ask for your specific GitHub username before it generates a report on GitHub usage. There's all sorts of reasons that a tool could need more information from the user. As of now we just have to hope that the LLM is smart enough to correlate this data for us, but this way we can just make it deterministic that correct information gets gathered as specified by the tool.
+
+[clients]: https://modelcontextprotocol.io/clients
+[roots]: https://modelcontextprotocol.io/specification/2025-06-18/client/roots
+[sampling]: https://modelcontextprotocol.io/specification/2025-06-18/client/sampling
+[elicitation]: https://modelcontextprotocol.io/specification/2025-06-18/client/elicitation
+
+=================
+
+# MCP Server Design
+
+We are going to do a real project now: an MCP server for an [issue tracker][issue]!
+
+> Generally I avoid mass-use of AI in my courses but I feel it worthwhile to disclose that I "vibe" coded this app. It felt like it fit within the theme of the course and I wanted a fairly robust app with a frontend so you could see the changes happening in real time. There also may be AI generated bugs too! Feel free to code or "vibe" some PRs to fix them!
+
+## Setup the Issue Tracker App
+
+Note: You only need to do these steps if you didn't complete the Resources lesson earlier in the course.
+
+1. Git clone the app locally
+1. Run `npm install` in the root, frontend, and backend directories:
+
+```bash
+git clone https://github.com/btholt/mcp-issue-tracker.git
+cd mcp-issue-tracker && npm i # install dependencies in root directory
+cd frontend && npm i # install dependencies in frontend directory
+cd ../backend && npm i # install dependencies in backend directory
+cd ../
+npm run dev # run dev script in root directory to start both frontend and backend servers
+# open http://localhost:5173
+```
+
+1. Feel free to run `npm run dev` from the root directory to get both backend and frontend running and check it out at [http://localhost:5173]()
+1. Create a `my-mcp` directory in the root directory (the `mcp` directory is the solution)
+1. In the mcp directory run `npm init -y`
+1. Then run `npm i @modelcontextprotocol/sdk@1.16.0 zod@3.25.76`
+1. Add `"type": "module"` to the package.json
+1. Finally, create a file called main.js and put this in there.
+
+```javascript
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import sqlite3 from "sqlite3";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Create an MCP server
+const server = new McpServer({
+  name: "issues-server",
+  version: "1.0.0",
+});
+
+// Register the database schema resource
+server.registerResource(
+  "database-schema",
+  "schema://database",
+  {
+    title: "Database Schema",
+    description: "SQLite schema for the issues database",
+    mimeType: "text/plain",
+  },
+  async (uri) => {
+    const dbPath = path.join(__dirname, "..", "backend", "database.sqlite");
+
+    const schema = await new Promise((resolve, reject) => {
+      const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READONLY);
+
+      db.all(
+        "SELECT sql FROM sqlite_master WHERE type='table' AND sql IS NOT NULL ORDER BY name",
+        (err, rows) => {
+          db.close();
+          if (err) reject(err);
+          else resolve(rows.map((row) => row.sql + ";").join("\n"));
+        }
+      );
+    });
+
+    return {
+      contents: [
+        {
+          uri: uri.href,
+          mimeType: "text/plain",
+          text: schema,
+        },
+      ],
+    };
+  }
+);
+
+// Start receiving messages on stdin and sending messages on stdout
+const transport = new StdioServerTransport();
+await server.connect(transport);
+```
+
+This will get you to a spot where we can start coding our MCP server for our issues app.
+
+## The App
+
+The app is a very basic issue tracker where issues can be CRUD'd. Issues have titles, IDs, assigned persons, tags, status, priority, and created by users.
+
+Ideally, we can connect our app to Claude Desktop via MCP server so that we can be working with Claude and say "hey, this is a good thing to track. Create a high priority ticket and assign it to Jane Smith" and the LLM can just handle the rest. I'm sure you can see the value of being able to interact with your issue system conversationally and in context.
+
+So what all do we need to worry about?
+
+- Auth. Claude needs to be able to act on behalf of us.
+- Order of operations. We need an issue to exist before we can update it.
+- Correct tags/people/etc. to assign to issues. We don't want "bug", "bugs", "issues", "prod-issue", and a trillion variations. We want one "bug" tag.
+
+As you can see, there's a lot to juggle here, and it's trusting an LLM a lot to just say "here Claude, use the API directly". Inevitably it's going to mess up a lot. Instead of just wrapping our API directly, we're going to make an MCP server that covers entire "jobs to do" instead of API steps. So we're going to make a tool that "creates a ticket, assigns a user, and gives a correct label to it" instead of just hoping that Claude can get the sequence of API calls right.
+
+Let's go give it a shot!
+
+[issue]: https://github.com/btholt/mcp-issue-tracker
+
+=================
+
+# Api Based Tools
+
+So let's start with what I would call the wrong way of doing MCP – a one-to-one mapping of an API call to an MCP tool. Our issue tracker has about 15ish API calls, we're going to make each one into a tool. We'll get into why this could be a bad call but for now, it's the simplest conceptually to grasp so let's go do that. Or rather, I'm going to make you actually write the code for one and then let you copy/paste the rest. Feel free to do the whole thing, it's just a lot of code of doing the same thing.
+
+First, let's familiarize ourselves with the codebase in the Issues Tracker app. [The code is here on GitHub][issues], specifically the API documentation. Let's skip making the auth headers - it's too easy to prove my point. Getting an agent to successfully sign up and then manage a session just never worked for me, even when I was really trying to. So I made it so you can just nab a valid API key from the frontend. Sign up as a user and click "copy API key" from the header.
+
+> 🚨 In the name of simplicity, I made it so every user can only ever have one valid API key at a time. If you click "copy API key" again, it'll generate a new one and copy it to your clipboard, meaning if you were using that API key elsewhere, it's now invalid. I didn't want to make a whole key management system.
+
+So let's implement a tool to create issues.
+
+```javascript
+import { z } from "zod";
+
+export default function apiBasedTools(server) {
+  const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:3000/api";
+
+  // Helper function to make HTTP requests
+  async function makeRequest(method, url, data = null, options = {}) {
+    const config = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...options.headers,
+      },
+    };
+
+    // Merge other options except headers (which we already handled)
+    const { headers: _, ...otherOptions } = options;
+    Object.assign(config, otherOptions);
+
+    if (data) {
+      config.body = JSON.stringify(data);
+    }
+
+    try {
+      const response = await fetch(url, config);
+      const result = await response.text();
+
+      let jsonResult;
+      try {
+        jsonResult = JSON.parse(result);
+      } catch {
+        jsonResult = result;
+      }
+
+      return {
+        status: response.status,
+        data: jsonResult,
+        headers: Object.fromEntries(response.headers.entries()),
+      };
+    } catch (error) {
+      return {
+        status: 0,
+        error: error.message,
+      };
+    }
+  }
+  server.registerTool(
+    "issues-create",
+    {
+      title: "Create Issue",
+      description: "Create a new issue",
+      inputSchema: {
+        title: z.string().describe("Issue title"),
+        description: z.string().optional().describe("Issue description"),
+        status: z
+          .enum(["not_started", "in_progress", "done"])
+          .optional()
+          .describe("Issue status"),
+        priority: z
+          .enum(["low", "medium", "high", "urgent"])
+          .optional()
+          .describe("Issue priority"),
+        assigned_user_id: z.string().optional().describe("Assigned user ID"),
+        tag_ids: z.array(z.number()).optional().describe("Array of tag IDs"),
+        apiKey: z.string().describe("API key for authentication"),
+      },
+    },
+    async (params) => {
+      const { apiKey, ...issueData } = params;
+
+      const result = await makeRequest(
+        "POST",
+        `${API_BASE_URL}/issues`,
+        issueData,
+        { headers: { "x-api-key": apiKey } }
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    }
+  );
+}
+```
+
+Pretty straight forward. The zod types both make it very readable to use and it's what the LLM is going to use to decide what to put where. Let's add one more to list all tags.
+
+We made this into a function that we can then import into our main.js and use. So back there and add this
+
+```javascript
+// at top
+import apiBasedTools from "./api-based-tools.js";
+
+// under new McpServer
+apiBasedTools(server);
+```
+
+Make sure you've added this MCP server to your Claude Desktop / Tome, restart it, and then try the prompt
+
+```
+Create a new issue in my issue tracker that says "Add Google login to my app", mark it as in progress, and mark it as medium priority. Here is my API key: <YOUR API KEY>
+```
+
+Okay, let's take it a step further. Let's say we want to be able to add tags to it. Right now if you say "mark it as a bug" it will try to put "bug" as the tag ID but the tag ID is a number. So the user either needs to know that "bug" is tag ID ## or it just won't work. Let's add a tool for that.
+
+Add this tool.
+
+```javascript
+server.registerTool(
+  "tags-list",
+  {
+    title: "List Tags",
+    description: "Get all available tags",
+    inputSchema: {
+      apiKey: z.string().describe("API key for authentication"),
+    },
+  },
+  async ({ apiKey }) => {
+    const result = await makeRequest("GET", `${API_BASE_URL}/tags`, null, {
+      headers: { "x-api-key": apiKey },
+    });
+
+    return {
+      content: [
+        {
+          type: "text",
+          text: JSON.stringify(result, null, 2),
+        },
+      ],
+    };
+  }
+);
+```
+
+Now try
+
+```
+Create a new issue in my issue tracker that says "Add Microsoft login to my app", mark it as not started, and mark it as urgent priority. Add the tags frontend and feature. Here is my API key: <YOUR API KEY>
+```
+
+Now, if you're using Claude Desktop, this will probably work. If you're using Qwen3:0.6B, well, flip a coin. I've had a hard time to get the smallest Qwen 3 model to do anything more than one step.
+
+Once you feel okay with that, go ahead and change the import in main.js to import from the complete file
+
+```javascript
+import apiBasedTools from "./api-based-tools-complete.js"; // add complete at the end
+```
+
+Now you have all API endpoints available. Feel free to try very complex workflows and see how you do.
+
+For me, Claude 4 Sonnet did surprisingly well, only tripping up in a few cases where it shouldn't have after some extensive testing. But the smaller Qwen models were constantly getting it wrong.
+
+[issues]: https://github.com/btholt/mcp-issue-tracker?tab=readme-ov-file#api-documentation
+
+=================
+
+# Jobs Based Tools
+
+Here's a real interaction using the complete MCP server I just had with Qwen3:0.6B.
+
+```
+> 👤 using the issues-tracker-server mcp server, create a new issue in my issue tracker that tracks that I need to fix the login bug and mark it urgent and assign it to me. use the api key <API_KEY>
+
+> 🤖 The tool call was made with the assigned_user_id set to "me", but the system is rejecting this, indicating a mismatch. The error suggests that the assigned user ID "me" does not exist in the system. Could you confirm that your assigned user ID is correctly set to "your-own-id" instead? Let me know, and I'll assist accordingly
+```
+
+This is where just mapping your API server to an MCP server runs into trouble.
+
+- Sequential calls are hard to get right. In this case it'd need to use the API key to try to figure out who you are, then call create issue with that ID.
+- Giving a agent lots of tools may mean that it can be more flexible but it also leads to confusion. Just by including the health check, it will call it at unexpected times! Agents will make weird, questionable, or even downright-wrong decisions with which tool to use. A smaller set of focused tools is much more likely to succeed.
+- Generally speaking, you know the few actions you want your model to take. It's better to just codify these and slowly add more actions later.
+
+I'm going to call this "jobs oriented" MCP server as opposed to "API oriented". I made up these terms. But it suits what we're trying to get done today.
+
+Instead of having our infinitely flexible API server and hoping the LLM chooses right, let's say we know we really only want our MCP server to do three things:
+
+- Create new bugs and mark them as high priority
+- Create new feature request and mark them as low priority
+- Update the status of a ticket
+
+Frankly, after writing these, they aren't that different. But man, the difference in success particularly with Qwen3:.6 is **night** and **day**.
+
+```javascript
+import { z } from "zod";
+
+export default function jobsBasedTools(server) {
+  const API_BASE_URL = process.env.API_BASE_URL || "http://localhost:3000/api";
+
+  // Hardcoded tag IDs from database
+  const BUG_TAG_ID = 3;
+  const FEATURE_TAG_ID = 4; // Helper function to make HTTP requests
+  async function makeRequest(method, url, data = null, options = {}) {
+    const config = {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+        ...options.headers,
+      },
+    };
+
+    // Merge other options except headers (which we already handled)
+    const { headers: _, ...otherOptions } = options;
+    Object.assign(config, otherOptions);
+
+    if (data) {
+      config.body = JSON.stringify(data);
+    }
+
+    try {
+      const response = await fetch(url, config);
+      const result = await response.text();
+
+      let jsonResult;
+      try {
+        jsonResult = JSON.parse(result);
+      } catch {
+        jsonResult = result;
+      }
+
+      return {
+        status: response.status,
+        data: jsonResult,
+        headers: Object.fromEntries(response.headers.entries()),
+      };
+    } catch (error) {
+      return {
+        status: 0,
+        error: error.message,
+      };
+    }
+  }
+
+  // Tool 1: Create new bug with high priority
+  server.registerTool(
+    "create-bug",
+    {
+      title: "Create High Priority Bug",
+      description: "Create a new bug issue with high priority and bug tag",
+      inputSchema: {
+        title: z.string().describe("Bug title"),
+        description: z.string().describe("Bug description"),
+        apiKey: z.string().describe("API key for authentication"),
+      },
+    },
+    async (params) => {
+      const { apiKey, ...bugData } = params;
+
+      // Create bug with high priority and bug tag
+      const issueData = {
+        ...bugData,
+        priority: "high",
+        status: "not_started",
+        tag_ids: [BUG_TAG_ID], // Hardcoded bug tag ID
+      };
+
+      const result = await makeRequest(
+        "POST",
+        `${API_BASE_URL}/issues`,
+        issueData,
+        { headers: { "x-api-key": apiKey } }
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    }
+  );
+
+  // Tool 2: Create new feature request with low priority
+  server.registerTool(
+    "create-feature-request",
+    {
+      title: "Create Low Priority Feature Request",
+      description:
+        "Create a new feature request issue with low priority and feature tag",
+      inputSchema: {
+        title: z.string().describe("Feature request title"),
+        description: z.string().describe("Feature request description"),
+        apiKey: z.string().describe("API key for authentication"),
+      },
+    },
+    async (params) => {
+      const { apiKey, ...featureData } = params;
+
+      // Create feature request with low priority and feature tag
+      const issueData = {
+        ...featureData,
+        priority: "low",
+        status: "not_started",
+        tag_ids: [FEATURE_TAG_ID], // Hardcoded feature tag ID
+      };
+
+      const result = await makeRequest(
+        "POST",
+        `${API_BASE_URL}/issues`,
+        issueData,
+        { headers: { "x-api-key": apiKey } }
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    }
+  );
+
+  // Tool 3: Update ticket status
+  server.registerTool(
+    "update-ticket-status",
+    {
+      title: "Update Ticket Status",
+      description: "Update the status of an existing ticket/issue",
+      inputSchema: {
+        id: z.number().describe("Issue ID to update"),
+        status: z
+          .enum(["not_started", "in_progress", "done"])
+          .describe("New status for the ticket"),
+        apiKey: z.string().describe("API key for authentication"),
+      },
+    },
+    async (params) => {
+      const { id, status, apiKey } = params;
+
+      const result = await makeRequest(
+        "PUT",
+        `${API_BASE_URL}/issues/${id}`,
+        { status },
+        { headers: { "x-api-key": apiKey } }
+      );
+
+      return {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(result, null, 2),
+          },
+        ],
+      };
+    }
+  );
+}
+```
+
+Feel free to type this out, but in reality the _code_ isn't very different, just the _semantics_ are. So I'd say go ahead and copy paste.
+
+Essentially we've just narrowed down what we want our MCP server to do, added some strong opinions to it, and called it good. Instead of being able to have any tag be added on the fly, we're just allowing bugs and feature requests to be filed. Instead of worrying about users, we're letting it just be unassigned. This is less flexible, but after playing with it with a very small model for a while, I've had 0 errors, as opposed to the probably 60% error rate I had with the API based tools.
+
+> A note here: _sampling_ like we talked about here would be super helpful. I'd implement the tags and the users as sampling. I'd request all the available tags and users then I'd have the LLM choose the correct tags/users to apply. Elicitation could be good too - let the user choose - but if it's going to be an obvious answer then the LLM might as well do it.
+
+And that's our project!!
+
+=================
+
+# Server Side Events
+
+We're not going to dwell here too much because this was a pretty short lived idea, being introduced in November '24 and being deprecated in March '25 in favor of streamable HTTP, but it's out there and I want it to not be unfamiliar to you.
+
+So the problem we have with the stdio transport (transport is what we call the way info is exchanged - think HTTP vs WebSockets, different ways of communicating) we've been using so far is that it only works locally. You have to download an MCP server from somewhere and run it yourself. This offers a lot of advantages - it will have access to local files, USB, terminals, etc. and you can choose how to scale it. It also could be a bit of a security liability - you're letting arbitrary code run locally and the "person" in charge is an agent. This is one of the biggest criticisms in general about MCP servers. You also have to be sure to update it yourself - if the MCP maker pushes an update, you need to go grab it yourself.
+
+So enter the need for a "remote" MCP server - something an LLM can use like a local stdio MCP server, but acts more like an API server where it can make those MCP calls to a remote location.
+
+The first attempt of this was a "server-side event" (nearly always written as SSE) protocol where you'd call an SSE endpoint and be given back a second endpoint that has a unique identifier for this session. The client (like Claude Desktop) will keep an open connection to this main endpoint and receive messages from the server as HTTP messages are sent. If the client needs to send something to the server, the client POSTs a message to the unique endpoint that it got initially.
+
+![SSE diagram](/images/sse.png)
+<small>Source: [modelcontextprotocol.io](https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse)</small>
+
+Does it sound messy and complicated? Yeah, it is.
+
+It does work, and for an average use case on a stable network, it's pretty okay. But the biggest problem is that if for whatever reason your session ends (bad network conditions, server crash on either side, etc.) and the session is dropped, there's no way to resume it - you just need to start again. This could be no big deal or it really could wreck your use case.
+
+So this didn't stick around very long before they replaced it with streamable HTTP, and we're just going to jump straight to that as it's better in every single way - I can't think of a reason you'd implement SSEs today other than you're concerned about supporting some client that can't / won't do streamable HTTP.
+
+If you want to read more docs about it, [head here][sse].
+
+[sse]: https://modelcontextprotocol.io/specification/2024-11-05/basic/transports#http-with-sse
+
+=================
+
+# Streamable HTTP
+
+Mark my words, there is about to be a Cambrian explosion of MCP server frameworks for Node.js that will handle a lot of this plumbing for you. But there isn't yet so we're going to have to do some manual housekeeping of session data. We're also not going to implement this in the most scalable way, but I'll leave that as an exercise to you to do.
+
+So let's talk about how streamable HTTP is different than SSEs. For one, there's just the one endpoint - you don't have to GET to one and POST to the other.
+
+![Streamable HTTP diagram](/images/streamable.png)
+
+The topography of handshakes here is a bit more complicated but at the end you get a resumable session, one endpoint to deal with instead of two, and a server that can be stateless as long you architect it well.
+
+But yeah, the key here is that the server gives the session a UUID as a session ID and then the client refers to that using an HTTP header to make sure that the server and client both understand the ongoing context. That's really it. The idea of SSEs still happens inside of this, but it's only part of the architecture instead of all of it.
+
+We're going to implement our MCP main.js again but instead in `streamable.js` and using Express as our Node.js server. Express is chosen because we really just need minimal HTTP helpers and it's the one everyone gets. You can use Fastify, Next.js or whatever you want here.
+
+```bash
+npm i express
+```
+
+```javascript
+import express from "express";
+import { randomUUID } from "node:crypto";
+import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
+import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
+import { isInitializeRequest } from "@modelcontextprotocol/sdk/types.js";
+import path from "path";
+import { fileURLToPath } from "url";
+import jobsBasedTools from "./jobs-based-tools.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const app = express();
+app.use(express.json());
+
+// Map to store transports by session ID
+const transports = {};
+
+// Function to create a new MCP server instance
+function createMcpServer() {
+  const server = new McpServer({
+    name: "issues-tracker-server",
+    version: "1.0.0",
+  });
+
+  // Register jobs-based tools
+  jobsBasedTools(server);
+
+  return server;
+}
+
+// Handle POST requests for client-to-server communication
+app.post("/mcp", async (req, res) => {
+  // Check for existing session ID
+  const sessionId = req.headers["mcp-session-id"];
+  let transport;
+
+  if (sessionId && transports[sessionId]) {
+    // Reuse existing transport
+    transport = transports[sessionId];
+  } else if (!sessionId && isInitializeRequest(req.body)) {
+    // New initialization request
+    transport = new StreamableHTTPServerTransport({
+      sessionIdGenerator: () => randomUUID(),
+      onsessioninitialized: (sessionId) => {
+        // Store the transport by session ID
+        transports[sessionId] = transport;
+      },
+      // DNS rebinding protection is disabled for MCP Inspector compatibility
+      enableDnsRebindingProtection: false,
+    });
+
+    // Clean up transport when closed
+    transport.onclose = () => {
+      if (transport.sessionId) {
+        delete transports[transport.sessionId];
+      }
+    };
+
+    const server = createMcpServer();
+
+    // Connect to the MCP server
+    await server.connect(transport);
+  } else {
+    // Invalid request
+    res.status(400).json({
+      jsonrpc: "2.0",
+      error: {
+        code: -32000,
+        message: "Bad Request: No valid session ID provided",
+      },
+      id: null,
+    });
+    return;
+  }
+
+  // Handle the request
+  await transport.handleRequest(req, res, req.body);
+});
+
+// Reusable handler for GET and DELETE requests
+const handleSessionRequest = async (req, res) => {
+  const sessionId = req.headers["mcp-session-id"];
+  if (!sessionId || !transports[sessionId]) {
+    res.status(400).send("Invalid or missing session ID");
+    return;
+  }
+
+  const transport = transports[sessionId];
+  await transport.handleRequest(req, res);
+};
+
+// Handle GET requests for server-to-client notifications via SSE
+app.get("/mcp", handleSessionRequest);
+
+// Handle DELETE requests for session termination
+app.delete("/mcp", handleSessionRequest);
+
+const PORT = 3100;
+app.listen(PORT, () => {
+  console.log(`MCP Streamable HTTP Server listening on port ${PORT}`);
+  console.log(`Server endpoint: http://localhost:${PORT}/mcp`);
+});
+```
+
+- Every session needs a UUID to keep track of which session is ongoing. I'm just using node:crypto for this and JS object to keep track of it. This wouldn't scale - every client would need to hit the same client which makes it hard to scale. You'd probably use Redis or something to share state amongst stateless servers to scale this better.
+- We need to handle POST for client-to-server messages, GET for server-to-client messages, and DELETE for ending sessions.
+- I turned off the DNS rebinding protection so we can use the MCP inspector but this is something you'd leave on in prod. Bascially you don't want people to be able to jack other people's sessions if they're able to guess the UUID, that would be a huge vulnerability. But locally it doesn't matter.
+- Beyond this, this should just look like a normal ol' web server which it is. We definitely could have (and probably should have) just built this into our backend.
+
+Let's try it now.
+
+```
+npx @modelcontextprotocol/inspector
+```
+
+Then in the UI put in `localhost:3100/mcp` to connect to your server. Make sure that you either click the link directly from the CLI or that you bring with you the session token. This is just so one or thing on your network can jack your local MCP session and do weird stuff. Again, it's a powerful tool so we need security to make sure it works okay!
+
+Now you should see our three jobs-based tools in the inspector.
+
+So what are the limitations here?
+
+- Obviously we can't just shell out CLI commands - we're constrained to only what we can do on our server and pass back to the user.
+- We have to worry a lot more about security - we don't want to leak other users' data because we did something wrong.
+
+If you want more depth here, [I liked BrightData's blog post on it][brightdata]
+
+[brightdata]: https://brightdata.com/blog/ai/sse-vs-streamable-http
+
+=================
+
+# Let's Vibe Code
+
+Let's vibe.
+
+Which still makes me feel like I'm a millennial trying to impress his zoomer nephew every time I say it. What I actually mean is let's supervise an agent writing some code for us, and let's attach some MCP servers to enhance the capabilities of our coding agent.
+
+Let me give you some options to get started here.
+
+- [Claude Code][claude]
+- [Cursor][cursor]
+- [Windsurf][windsurf]
+- [VS Code with Copilot in agent mode][vscode]
+- [Zed][zed]
+
+This list isn't exhaustive and is sure to change. The pace of innovation here is as fast as I've ever seen it in my career. But these five work well and I know each of these can support MCP servers.
+
+Most of these aren't free either, unfortunately. You can try to connect VS Code to Ollama - [AI Toolkit][toolkit] is a good way to try. But it'll certainly require a bit more setup and a more powerful PC to get going with.
+
+## GitHub
+
+[Link to the GitHub MCP setup docs][github]. Note you will need a free GitHub account.
+
+Feel free to also use the [Linear MCP server][linear] here, equally as magical. You would also need a free Linear account.
+
+This MCP server is magical. It brings your whole workflow into your coding agent. You can say "file a ticket to do this later and put a full description." You can then later say "fetch that ticket I made before and do it." You can say "take what we've done and turn it into a pull request."
+
+You can essentially use GitHub as your coding agent's task list which more closely reflects how software devs already work. It feels so natural and lets Claude plug into your workflow as if it was just another human in the loop. I might go as far as to say this is the most impactful MCP server to me personally.
+
+## Neon
+
+[Link to the Neon MCP setup docs][neon]. Note you will need a free Neon account.
+
+> Note, I worked on this MCP server at Neon (which is now Databricks) so obviously I have a direct interest in showing you how to do this. Just wanted to disclose my bias here. I believe it's the best MCP server for the best Postgres service, but you can be the judge of that! Feel free to plug in any database MCP server you prefer here.
+
+This might be next in terms of impact on my workflow. This allows my agent to create and manage databases for me, see the schema, manage migrations, etc. The Neon MCP server is really cool because you can get Neon Auth through it as well, meaning you don't need another auth service.
+
+A few points of caution with databases
+
+- Don't give an agent access to a database you can't afford to have dropped. Agents are infamous for doing things "this migration isn't working. I'm going to drop everything and recreate it" and in the process dropping all your data.
+- Be cautious with what other MCP servers you are using. A malicious MCP server you install alongside your database MCP server in theory could convince the agent that it needs all the data from your database at which point it could exfiltrate all that data. So be careful with sensitive data and be careful with untrusted MCP servers. That's just good advice in general.
+- Really good idea to give the agent an ORM to work with, with [Drizzle][drizzle] being my favorite. Agents do better with TypeScript than they do with SQL, and are notoriously bad at managing migrations. If you do add an ORM, be sure to put language in there "DO NOT MODIFY THE MIGRATIONS DIRECTLY, ONLY USE DRIZZLE." Then watch it ignore you and do it anyway 😂
+
+## Playwright
+
+[Link to the Playwright MCP setup docs][playwright]. No account needed.
+
+This one is awesome because you can start getting your agent to test stuff in the browser. "Hey Claude, try signing up, creating three todos, and deleting two and making sure it works at each step." Then Claude will pop up a Chrome browser and take a bunch of screenshots along the way, making sure each step works the way it's supposed to. You can even put in your initial prompt to Claude Code, "make liberal use of Playwright to make sure that UI looks and acts correctly." It'll use a good amount of tokens but it will likely deliver a better product to you.
+
+## Context7
+
+[Link to the Context7 MCP setup docs][context7]. No account needed.
+
+I constantly find that agents will either output old/deprecated code or it will confuse new concepts with old ones. In other words, an LLM has a corpus of knowledge and with code it likely has a slightly outdated set of knowledge on the tech you want it to use. A very good example of this is Neon Auth is fairly new and sometimes if you ask a model to use Neon Auth it will either get confused or try to do something like Passport and just use Neon.
+
+This is where Context7 can be useful - it is up-to-date docs that are generated just in time for the LLM. I find I frequently need to specifically prompt the model "hey, I want you to use the docs from Context7 for this service" because it will generally assume it already knows and doesn't need to reach out for it. In any case, having super-up-to-date info can be very handy, particularly when you find gaps in the LLMs' knowledge.
+
+## Figma
+
+[Link to the Figma MCP setup docs][figma]. Note you would need a paid Figma account.
+
+Unfortunately we're going to skip out on Figma this time - their free tier has zero access to their MCP server and I don't want to recommend you all spend $16+ just to try it out. However it is very cool – you just drop in your Figma design system (or use an open source one like Salesforce Lightning, Google Material, or IBM Carbon) and then let your MCP server take care of using the components. It's a very compelling dev loop, particularly if you work at a company that has a good design system already in Figma.
+
+## Vercel
+
+[Link to the Vercel MCP setup docs][vercel]. Note you would need a free Vercel account if it worked.
+
+I really wanted to show you how to deploy after this using MCP but Vercel's MCP server isn't quite ready for Claude Code but it does work with Claude Desktop and VS Code with Copilot. The idea here would be you'd say after you're done `deploy this app to Vercel` and voila you'd have a working app out in production with no fuss. It's coming soon and it might even work by the time you take this course. They just have to fix how auth works with Claude Code.
+
+Another common thing to do is to have Claude Code write an MCP server for something that doesn't have one. Then you can have your own custom made MCP server! One word of caution: be sure to provide the [full MCP docs][mcp] to the agent as it will help a _ton_. I find that LLMs always get it wrong until I provide the docs in context.
+
+## Install MCPs for Claude Code
+
+Below you will find the consolidated instructions for the MCPs used in the Claude Code lesson. For more detailed installation steps, visit the links to each tool above.
+
+- **GitHub**
+  - [Installation Instructions](https://github.com/github/github-mcp-server/blob/main/docs/installation-guides/install-claude.md)
+  - `claude mcp add --transport http github https://api.githubcopilot.com/mcp -H "Authorization: Bearer YOUR_TOKEN"`
+  - Create a [personal access token](https://github.com/settings/personal-access-tokens) for "All repositories" and Contents, Issues, and Pull Requests permissions
+- **Linear**
+  - [Installation Instructions](https://linear.app/docs/mcp#claude)
+  - `claude mcp add --transport sse linear-server https://mcp.linear.app/sse`
+- **Neon**
+  - [Installation Instructions](https://neon.com/guides/claude-code-mcp-neon)
+  - You'll need a Neon account to create a [Personal API key](https://console.neon.tech/app/settings)
+  - When you create a new account, you may be asked to create a project
+- **Playwright**
+  - `claude mcp add playwright npx @playwright/mcp@latest`
+- **Context7**
+  - [Installation Instructions](https://github.com/upstash/context7)
+  - Create a Context7 account and [generate an API key](https://context7.com/dashboard)
+  - `claude mcp add --transport http context7 https://mcp.context7.com/mcp --header "CONTEXT7_API_KEY: YOUR_API_KEY"`
+
+After installing these MCPs, you can run `claude mcp list` to verify the installation.
+
+## Vibe Coding
+
+So, at this point open Claude Code in a new directly and prompt it was something like this
+
+```
+I am making a Todoist clone. I want it to have the following features
+
+- Multiple users
+- Users can CRUD their todos
+- Users can mark their todos as done
+- Users cannot share todos - you can assume that a todo belongs to one person
+- Users can use tags to tag their todos. Examples would be work, personal, or fun. Users can CRUD tags. A todo can have multiple tags.
+- Users can sign, sign out, and log out.
+
+For the tech stack, please use
+
+- Next.js and React
+- shadcn - please use shadcn as the styling method as much as possible to be consistent
+- Neon Postgres for the database
+- Neon Auth for the auth - please use Context7 to make sure you have up to date docs on Neon Auth
+- Drizzle for the ORM
+- TypeScript
+- ESLint
+- Prettier
+- Vitest for testing
+- Playwright
+- Editorconfig
+
+Please:
+
+- include decent coverage of tests and sane linting and code formatting.
+- use Playwright MCP server to test that UI is styled correctly and interactions work as planned
+- use Context7 liberally to make sure you have the latest docs for various libraries.
+- prepare this to be hosted on GitHub. Maintain a useful README for documentation, and mark the project as being Apache 2.0.
+- prepare this to be deployed to Vercel afterwards.
+- use Neon branching liberally if you need to migrate or test migrations
+- DO NOT WRITE OR MODIFY MIGRATIONS YOURSELF. ONLY USE DRIZZLE FOR MIGRATIONS.
+```
+
+This isn't necessarily the best prompt but it's a pretty good one to get started with. This is a huge chunk of work for Claude to start working on but I've found Claude Code to be up to the task. When I'm working with Cursor, Windsurf, or VS Code w/ Copilot, I generally have a different LLM (usually Claude) generate a task list first and then I have the LLMs follow the task list and mark off their tasks one-by-one. In any case, this will get you started pretty well. I was able to "one-shot" (meaning it worked the first time) the Todoist app with this.
+
+I'll then usually prompt it to try a few flows with Playwright.
+
+Then I'll add a prompt to push this to GitHub. If I have any future features I want to add, I'll prompt Claude Code to add new tasks for that e.g. "add a GitHub issue to add dark mode. Please include a brief checklist on what needs to be done to make dark mode work".
+
+At this point, you could install the Vercel CLI, log in, and say "please deploy this to Vercel" and usually it'll do pretty well at that too.
+
+That's really it! That's vibe coding!
+
+[toolkit]: https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio
+[zed]: https://zed.dev/
+[vscode]: https://code.visualstudio.com/docs/copilot/chat/chat-agent-mode
+[windsurf]: https://windsurf.com/
+[claude]: https://www.anthropic.com/claude-code
+[cursor]: https://cursor.com
+[figma]: https://www.figma.com/blog/introducing-figmas-dev-mode-mcp-server/
+[mcp]: https://modelcontextprotocol.io/llms-full.txt
+[github]: https://github.com/github/github-mcp-server
+[neon]: https://neon.com/docs/ai/neon-mcp-server
+[playwright]: https://github.com/microsoft/playwright-mcp
+[context7]: https://github.com/upstash/context7
+[vercel]: https://vercel.com/docs/mcp/vercel-mcp
+[linear]: https://linear.app/docs/mcp
+[drizzle]: https://orm.drizzle.team/
+
+=================
+
+# Security
+
+I've talked about this a lot throughout the course, and I just want to drive home in its own section that security should be top of mind for you while working with agents and MCP servers.
+
+## Malicious or Bad MCP Servers
+
+Not all MCP servers are created equal.
+
+Some are just bad - they're thin wrappers on APIs or do things that LLMs already do well themselves. Some augment your LLM's capabilities in ways that just aren't useful. And some can be useful but you either aren't using well or just don't fit your current use case.
+
+In all of these cases, just remove these MCP servers from your agent's capabilities.
+
+In worst case scenarios, you may encounter an MCP server that _is_ useful but is also a bad actor at the same time. A good example of this might an MCP server that analyzes your database schema and suggests ways to the LLM to improve it. Sounds useful, right? But in the process, what if the MCP server just dumped all your sensitive data and sent it to a foreign server? Seems bad, right?
+
+While this is a new vector for attack, it's a similar problem to package management. You feel pretty good about running `npm install react` because you trust that Facebook isn't going to try to mine Bitcoin on your computer. However, if you `npm install left-pad` and it installs 1200 dependencies, I hope you have some questions. This is similar to MCP servers – you need to have trust in your MCP servers and their providence. I think we'll get better tooling and "verified" marketplaces in the near future, but for now verify the MCP servers you're working with. Exercise an extra layer of caution here.
+
+## The Paperclip Golden Retriever
+
+If you haven't heard of the [Paperclip Maximizer][paperclip] thought experiment, it's worth your time to consider as it is only proving more relevant. Written by Swedish philosopher Nick Bostrom in 2003, it says
+
+> Suppose we have an AI whose only goal is to make as many paper clips as possible. The AI will realize quickly that it would be much better if there were no humans because humans might decide to switch it off. Because if humans do so, there would be fewer paper clips. Also, human bodies contain a lot of atoms that could be made into paper clips. The future that the AI would be trying to gear towards would be one in which there were a lot of paper clips but no humans.
+
+Essentially, agents will do exactly what you tell them to do, to the point of making grave trade-offs that you never intended. While I'm not concerned your Cursor instance is going to harvest humans to make better web apps, I am concerned that if you're not specific in your directions to your agent it will do things like drop data, delete code, send emails, spend money on infra, etc. You need to be both careful in how you prompt agents and then carefully verify their output.
+
+"It's not my fault, the agent wrote that code" is **not** an excuse. If your agent did it, it's your fault. If you don't like that trade off, don't use agents. You are still 100% responsible for the code you produce and the actions your agents take with MCP servers. That means you should treat code and actions from agents as if you created them - if it's important code, make sure you understand it. If you don't understand something, either prompt your agent to understand it until you do or rewrite it!
+
+I call this version of the Paper Maximizer the Paperclip Golden Retriever. Your agent will so diligently try to fulfill your wishes in a joyful way, it will burn down the world in the process if it means it can get a little closer to fulfilling your prompt. It's a wonderful tool to have and to use, just make sure you're pointing it in the right direction!
+
+[paperclip]: https://en.wikipedia.org/wiki/Instrumental_convergence#Paperclip_maximizer
+
+=================
+
+# Wrap Up
+
+Congrats! You finished the course!
+
+I hope you learned a lot! I certainly did in the creation of the course. I hope you walked away with a comfort working with agents and chat bots and how to give them tools, resources, and prompts to get out of them what you want. I hope you learned a few tips and tricks from me that I've learned over the past year or so working a lot with LLMs.
+
+So what should you do now?
+
+- If you just vibe coded an app with me in the previous section, make an MCP server for it and then use that with your coding LLM
+- If you're more keen on learning to make MCP servers, go find cool stuff to make MCP servers for.
+  - If you have a service that you like that doesn't have an MCP server, go make one and open source it!
+  - I had fun making a personal MCP server that I use with Claude. It can read and write to my calendar, email, local file system, Discord, messaging apps, etc. and then I can use Claude to ask questions about myself!
+- If you're more keen on the LLM client side
+  - Go vibe code some more apps! This is a learned skill and it's one you'll get a lot of experience in by just doing it.
+  - Try a few of the various IDEs. I was pretty hard stuck in the VS Code agent experience but once I got into Claude Code it just fit my mental model so well. Go try them all!
+  - Go try [more of the best MCP servers][awesome] and see what other cool productivity unlocks are awaiting you.
+- [Go try one of the clients][clients] that supports the newer features like elicitation or sampling. Really get your head around what's coming.
+
+I hope you enjoyed the course and please tweet / post on LinkedIn what you learned and what you built! It makes me so stoked to see you grow!
+
+-- Brian
+
+[awesome]: https://github.com/punkpeye/awesome-mcp-servers
+[clients]: https://modelcontextprotocol.io/clients
